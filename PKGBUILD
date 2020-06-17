@@ -16,11 +16,13 @@ source=(dwm.desktop
         dwm-swallow.diff
         dwm-fibonacci.diff
         dwm-center.diff
+        dwm-hide_vacant_tags.diff
         "$_pkgname::git+http://git.suckless.org/dwm")
 md5sums=('939f403a71b6e85261d09fc3412269ee'
          'c589a9b055c6a48133921a3d92bbcfb3'
          '1fc41126262be2d1587e44ee4c096bbd'
          'c7934768bd42be5b6ccc76581c1509ab'
+         '3b0f29d3c8f2bb386c1f022ec1f061ba'
          'SKIP')
 
 pkgver(){
@@ -33,6 +35,7 @@ prepare() {
   patch --forward --strip=1 --input="${srcdir}/dwm-swallow.diff"
   patch --forward --strip=1 --input="${srcdir}/dwm-fibonacci.diff"
   patch --forward --strip=1 --input="${srcdir}/dwm-center.diff"
+  patch --forward --strip=1 --input="${srcdir}/dwm-hide_vacant_tags.diff"
 }
 
 build() {
