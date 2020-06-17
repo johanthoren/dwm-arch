@@ -18,6 +18,7 @@ source=(dwm.desktop
         dwm-center.diff
         dwm-hide_vacant_tags.diff
         dwm-resetlayout.diff
+        dwm-combo.diff
         "$_pkgname::git+http://git.suckless.org/dwm")
 md5sums=('939f403a71b6e85261d09fc3412269ee'
          'c589a9b055c6a48133921a3d92bbcfb3'
@@ -25,6 +26,7 @@ md5sums=('939f403a71b6e85261d09fc3412269ee'
          'c7934768bd42be5b6ccc76581c1509ab'
          '3b0f29d3c8f2bb386c1f022ec1f061ba'
          'e4784697bc9fcdcd8182db9b67499209'
+         'ac0776645e39a6722f8ed22f7fdb6170'
          'SKIP')
 
 pkgver(){
@@ -39,6 +41,7 @@ prepare() {
   patch --forward --strip=1 --input="${srcdir}/dwm-center.diff"
   patch --forward --strip=1 --input="${srcdir}/dwm-hide_vacant_tags.diff"
   patch --forward --strip=1 --input="${srcdir}/dwm-resetlayout.diff"
+  patch --forward --strip=1 --input="${srcdir}/dwm-combo.diff"
 }
 
 build() {
