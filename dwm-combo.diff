@@ -48,14 +48,6 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
 diff --unified --recursive --text dwm/dwm.c dwm.new/dwm.c
 --- dwm/dwm.c	2020-06-17 11:24:41.482979905 +0200
 +++ dwm.new/dwm.c	2020-06-17 11:27:21.392845387 +0200
-@@ -215,7 +215,6 @@
- static void showhide(Client *c);
- static void sigchld(int unused);
- static void spawn(const Arg *arg);
--static void tag(const Arg *arg);
- static void tagmon(const Arg *arg);
- static void tile(Monitor *);
- static void togglebar(const Arg *arg);
 @@ -243,6 +242,10 @@
  static int xerrorstart(Display *dpy, XErrorEvent *ee);
  static void zoom(const Arg *arg);

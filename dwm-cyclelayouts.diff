@@ -68,7 +68,7 @@ index bb95e26..db73000 100644
  static void destroynotify(XEvent *e);
  static void detach(Client *c);
  static void detachstack(Client *c);
-@@ -798,6 +799,23 @@ createmon(void)
+@@ -799,6 +800,23 @@ createmon(void)
  }
  
  void

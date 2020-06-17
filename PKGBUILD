@@ -42,15 +42,35 @@ pkgver(){
 
 prepare() {
   cd $_pkgname
+  echo "Adding patch dwm-swallow.diff:"
   patch --forward --strip=1 --input="${srcdir}/dwm-swallow.diff"
+  echo ""
+  echo "Adding patch dwm-fibonacci.diff:"
+  find "${srcdir}/" -name fibonacci.c -delete
   patch --forward --strip=1 --input="${srcdir}/dwm-fibonacci.diff"
+  echo ""
+  echo "Adding patch dwm-center.diff:"
   patch --forward --strip=1 --input="${srcdir}/dwm-center.diff"
+  echo ""
+  echo "Adding patch dwm-hide_vacant_tags.diff:"
   patch --forward --strip=1 --input="${srcdir}/dwm-hide_vacant_tags.diff"
+  echo ""
+  echo "Adding patch dwm-resetlayout.diff:"
   patch --forward --strip=1 --input="${srcdir}/dwm-resetlayout.diff"
+  echo ""
+  echo "Adding patch dwm-combo.diff:"
   patch --forward --strip=1 --input="${srcdir}/dwm-combo.diff"
+  echo ""
+  echo "Adding patch dwm-cool-autostart.diff:"
   patch --forward --strip=1 --input="${srcdir}/dwm-cool-autostart.diff"
+  echo ""
+  echo "Adding patch dwm-cyclelayouts.diff:"
   patch --forward --strip=1 --input="${srcdir}/dwm-cyclelayouts.diff"
+  echo ""
+  echo "Adding patch dwm-dwmc.diff:"
+  find "${srcdir}/" -name dwmc -delete
   patch --forward --strip=1 --input="${srcdir}/dwm-dwmc.diff"
+  echo ""
 }
 
 build() {
