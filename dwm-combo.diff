@@ -1,8 +1,54 @@
-diff --git a/dwm.c b/dwm.c
-index 0362114..40b7a99 100644
---- a/dwm.c
-+++ b/dwm.c
-@@ -243,6 +243,10 @@ static int xerrordummy(Display *dpy, XErrorEvent *ee);
+diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
+--- dwm/config.def.h	2020-06-17 11:20:13.753832200 +0200
++++ dwm.new/config.def.h	2020-06-17 11:19:32.790722667 +0200
+@@ -52,9 +52,9 @@
+ /* key definitions */
+ #define MODKEY Mod1Mask
+ #define TAGKEYS(KEY,TAG) \
+-	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
++	{ MODKEY,                       KEY,      comboview,      {.ui = 1 << TAG} }, \
+ 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
+-	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
++	{ MODKEY|ShiftMask,             KEY,      combotag,       {.ui = 1 << TAG} }, \
+ 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+ 
+ /* helper for spawning shell commands in the pre dwm-5.0 fashion */
+@@ -78,7 +78,7 @@
+ 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+ 	{ MODKEY,                       XK_r,      resetlayout,    {0} },
+ 	{ MODKEY,                       XK_Return, zoom,           {0} },
+-	{ MODKEY,                       XK_Tab,    view,           {0} },
++	{ MODKEY,                       XK_Tab,    comboview,      {0} },
+ 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
+ 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
+ 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
+@@ -87,8 +87,8 @@
+ 	{ MODKEY|ShiftMask,             XK_r,      setlayout,      {.v = &layouts[4]} },
+ 	{ MODKEY,                       XK_space,  setlayout,      {0} },
+ 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+-	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
+-	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
++	{ MODKEY,                       XK_0,      comboview,      {.ui = ~0 } },
++	{ MODKEY|ShiftMask,             XK_0,      combotag,       {.ui = ~0 } },
+ 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
+ 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
+ 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
+@@ -116,9 +116,9 @@
+ 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
+ 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
+ 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
+-	{ ClkTagBar,            0,              Button1,        view,           {0} },
++	{ ClkTagBar,            0,              Button1,        comboview,      {0} },
+ 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
+-	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
++	{ ClkTagBar,            MODKEY,         Button1,        combotag,       {0} },
+ 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
+ };
+ 
+diff --unified --recursive --text dwm/dwm.c dwm.new/dwm.c
+--- dwm/dwm.c	2020-06-17 11:20:13.753832200 +0200
++++ dwm.new/dwm.c	2020-06-17 11:20:47.250337142 +0200
+@@ -243,6 +243,10 @@
  static int xerrorstart(Display *dpy, XErrorEvent *ee);
  static void zoom(const Arg *arg);
  
@@ -13,7 +59,7 @@ index 0362114..40b7a99 100644
  static pid_t getparentprocess(pid_t p);
  static int isdescprocess(pid_t p, pid_t c);
  static Client *swallowingclient(Window w);
-@@ -261,6 +265,7 @@ static int (*xerrorxlib)(Display *, XErrorEvent *);
+@@ -261,6 +265,7 @@
  static unsigned int numlockmask = 0;
  static void (*handler[LASTEvent]) (XEvent *) = {
  	[ButtonPress] = buttonpress,
@@ -21,7 +67,7 @@ index 0362114..40b7a99 100644
  	[ClientMessage] = clientmessage,
  	[ConfigureRequest] = configurerequest,
  	[ConfigureNotify] = configurenotify,
-@@ -268,6 +273,7 @@ static void (*handler[LASTEvent]) (XEvent *) = {
+@@ -268,6 +273,7 @@
  	[EnterNotify] = enternotify,
  	[Expose] = expose,
  	[FocusIn] = focusin,
@@ -29,7 +75,7 @@ index 0362114..40b7a99 100644
  	[KeyPress] = keypress,
  	[MappingNotify] = mappingnotify,
  	[MapRequest] = maprequest,
-@@ -293,6 +299,42 @@ static Window root;
+@@ -293,6 +299,42 @@
  struct NumTags { char limitexceeded[LENGTH(tags) > 31 ? -1 : 1]; };
  
  /* function implementations */
