@@ -21,6 +21,7 @@ source=(dwm.desktop
         dwm-combo.diff
         dwm-cool-autostart.diff
         dwm-cyclelayouts.diff
+        dwm-dwmc.diff
         "$_pkgname::git+http://git.suckless.org/dwm")
 md5sums=('939f403a71b6e85261d09fc3412269ee'
          'c589a9b055c6a48133921a3d92bbcfb3'
@@ -31,6 +32,7 @@ md5sums=('939f403a71b6e85261d09fc3412269ee'
          '6957740bb75079fe95d352c308734b78'
          '9c71ec8f56c01a46c6cb02fb377f0996'
          '4fe6c456bfcde9dfcd1315912b94b826'
+         '1c5b0d5d63479f0985571199f6e90a66'
          'SKIP')
 
 pkgver(){
@@ -48,6 +50,7 @@ prepare() {
   patch --forward --strip=1 --input="${srcdir}/dwm-combo.diff"
   patch --forward --strip=1 --input="${srcdir}/dwm-cool-autostart.diff"
   patch --forward --strip=1 --input="${srcdir}/dwm-cyclelayouts.diff"
+  patch --forward --strip=1 --input="${srcdir}/dwm-dwmc.diff"
 }
 
 build() {
