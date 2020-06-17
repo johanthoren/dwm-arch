@@ -39,7 +39,7 @@ md5sums=('939f403a71b6e85261d09fc3412269ee'
          'd0d9f05b63c1562b8322487d67c4009c'
          '865936e845b7c3045a95915eabe73090'
          'SKIP'
-         'SKIP') # Skipping MD5 check on potential config.h.
+         'SKIP') # Skipping MD5 check to allow you to put you own config here.
 
 pkgver(){
   cd $_pkgname
