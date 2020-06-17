@@ -1,8 +1,8 @@
-pkgname=dwm-git
+pkgname=dwm-jt
 _pkgname=dwm
 pkgver=6.2.r0.gcb3f58a
 pkgrel=1
-pkgdesc="A dynamic window manager for X"
+pkgdesc="A dynamic window manager for X - Patched by Johan Thorén"
 url="http://dwm.suckless.org"
 arch=('i686' 'x86_64')
 license=('MIT')

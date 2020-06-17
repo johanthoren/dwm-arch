@@ -1,5 +1,5 @@
-pkgbase = dwm-git
-	pkgdesc = A dynamic window manager for X
+pkgbase = dwm-jt
+	pkgdesc = A dynamic window manager for X - Patched by Johan Thorén
 	pkgver = 6.0.41.g3d1090b
 	pkgrel = 1
 	epoch = 1
@@ -17,5 +17,5 @@ pkgbase = dwm-git
 	source = dwm::git+http://git.suckless.org/dwm
 	options = zipman
 
-pkgname = dwm-git
+pkgname = dwm-jt
 
