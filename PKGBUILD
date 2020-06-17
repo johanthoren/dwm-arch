@@ -1,6 +1,6 @@
 pkgname=dwm-jt
 _pkgname=dwm
-pkgver=6.2.r0.gcb3f58a
+pkgver=6.2.r6.gf04cac6
 pkgrel=1
 pkgdesc="A dynamic window manager for X - Patched by Johan Thorén"
 url="http://dwm.suckless.org"
@@ -13,9 +13,9 @@ install=dwm.install
 provides=('dwm')
 conflicts=('dwm')
 source=(dwm.desktop
-        "$_pkgname::git+http://git.suckless.org/dwm"
+        "$_pkgname::git+http://git.suckless.org/dwm")
 md5sums=('939f403a71b6e85261d09fc3412269ee'
-         'SKIP'
+         'SKIP')
 
 pkgver(){
   cd $_pkgname
