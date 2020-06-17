@@ -24,7 +24,8 @@ source=(dwm.desktop
         dwm-dwmc.diff
         dwm-uselessgap.diff
         dwm-systray.diff
-        "$_pkgname::git+http://git.suckless.org/dwm")
+        "$_pkgname::git+http://git.suckless.org/dwm"
+        config.h)
 md5sums=('939f403a71b6e85261d09fc3412269ee'
          'c589a9b055c6a48133921a3d92bbcfb3'
          '1fc41126262be2d1587e44ee4c096bbd'
@@ -37,7 +38,8 @@ md5sums=('939f403a71b6e85261d09fc3412269ee'
          'da4f14df419398475abdbea628f16f49'
          'd0d9f05b63c1562b8322487d67c4009c'
          '865936e845b7c3045a95915eabe73090'
-         'SKIP')
+         'SKIP'
+         'SKIP') # Skipping MD5 check on potential config.h.
 
 pkgver(){
   cd $_pkgname
@@ -81,6 +83,13 @@ prepare() {
   echo "Adding patch dwm-systray:"
   patch --forward --strip=1 --input="${srcdir}/dwm-systray.diff"
   echo ""
+
+  # If the provided config.h contains something (not empty),
+  # then copy it to be used at build. This way you can customize
+  # the settings.
+  if [[ -s "${srcdir}/config.h" ]]; then
+      cp -fv "${srcdir}/config.h" config.h
+  fi
 }
 
 build() {
