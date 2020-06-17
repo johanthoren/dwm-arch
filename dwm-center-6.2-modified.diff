@@ -38,7 +38,7 @@ index 4465af1..ab33757 100644
  	int bw, oldbw;
  	unsigned int tags;
 -	int isfixed, isfloating, isurgent, neverfocus, oldstate, isfullscreen, isterminal, noswallow;
-+	int isfixed, iscentered, isfloating, isurgent, neverfocus, oldstate, isfullscreen isterminal, noswallow;
++	int isfixed, iscentered, isfloating, isurgent, neverfocus, oldstate, isfullscreen, isterminal, noswallow;
  	pid_t pid;
  	Client *next;
  	Client *snext;

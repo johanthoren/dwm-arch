@@ -20,7 +20,7 @@ source=(dwm.desktop
 md5sums=('939f403a71b6e85261d09fc3412269ee'
          'c589a9b055c6a48133921a3d92bbcfb3'
          'a35befdbc055fe1c7609f63cecc56676'
-         '619a2c2c0b9b5bd9b28a20ccdc29fcf1'
+         'c7934768bd42be5b6ccc76581c1509ab'
          'SKIP')
 
 pkgver(){
