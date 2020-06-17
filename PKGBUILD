@@ -1,3 +1,5 @@
+# -*- mode: shell-script;-*-
+# Maintainer: Johan Thorén <johan@thoren.xyz>
 pkgname=dwm-jt
 _pkgname=dwm
 pkgver=6.2.r6.gf04cac6
@@ -8,6 +10,7 @@ arch=('i686' 'x86_64')
 license=('MIT')
 options=(zipman)
 depends=('libx11' 'libxinerama' 'libxft')
+optdepends=('dmenu' 'picom' 'st')
 makedepends=('git')
 install=dwm.install
 provides=('dwm')
@@ -106,4 +109,3 @@ package() {
 }
 
 # vim:set ts=2 sw=2 et:
-# -*- mode: shell-script;-*-
