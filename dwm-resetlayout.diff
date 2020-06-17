@@ -1,0 +1,50 @@
+diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
+--- dwm/config.def.h	2020-06-17 10:48:40.842868363 +0200
++++ dwm.new/config.def.h	2020-06-17 10:51:34.108140468 +0200
+@@ -76,6 +76,7 @@
+ 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+ 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
+ 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
++	{ MODKEY,                       XK_r,      resetlayout,    {0} },
+ 	{ MODKEY,                       XK_Return, zoom,           {0} },
+ 	{ MODKEY,                       XK_Tab,    view,           {0} },
+ 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
+diff --unified --recursive --text dwm/dwm.c dwm.new/dwm.c
+--- dwm/dwm.c	2020-06-17 10:48:40.842868363 +0200
++++ dwm.new/dwm.c	2020-06-17 10:53:36.182653513 +0200
+@@ -196,6 +196,7 @@
+ static void propertynotify(XEvent *e);
+ static void quit(const Arg *arg);
+ static Monitor *recttomon(int x, int y, int w, int h);
++static void resetlayout(const Arg *arg);
+ static void resize(Client *c, int x, int y, int w, int h, int interact);
+ static void resizeclient(Client *c, int x, int y, int w, int h);
+ static void resizemouse(const Arg *arg);
+@@ -1359,6 +1360,16 @@
+ }
+ 
+ void
++resetlayout(const Arg *arg)
++{
++	Arg default_layout = {.v = &layouts[0]};
++	Arg default_mfact = {.f = mfact + 1};
++
++	setlayout(&default_layout);
++	setmfact(&default_mfact);
++}
++
++void
+ resize(Client *c, int x, int y, int w, int h, int interact)
+ {
+ 	if (applysizehints(c, &x, &y, &w, &h, interact))
+@@ -1375,6 +1386,10 @@
+ 	c->oldw = c->w; c->w = wc.width = w;
+ 	c->oldh = c->h; c->h = wc.height = h;
+ 	wc.border_width = c->bw;
++
++	if ((nexttiled(c->mon->clients) == c) && !(nexttiled(c->next)))
++		resetlayout(NULL);
++
+ 	XConfigureWindow(dpy, c->win, CWX|CWY|CWWidth|CWHeight|CWBorderWidth, &wc);
+ 	configure(c);
+ 	XSync(dpy, False);
