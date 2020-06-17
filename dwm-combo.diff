@@ -1,6 +1,6 @@
 diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
---- dwm/config.def.h	2020-06-17 11:20:13.753832200 +0200
-+++ dwm.new/config.def.h	2020-06-17 11:19:32.790722667 +0200
+--- dwm/config.def.h	2020-06-17 11:24:41.482979905 +0200
++++ dwm.new/config.def.h	2020-06-17 11:25:18.119595726 +0200
 @@ -52,9 +52,9 @@
  /* key definitions */
  #define MODKEY Mod1Mask
@@ -46,9 +46,17 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
  };
  
 diff --unified --recursive --text dwm/dwm.c dwm.new/dwm.c
---- dwm/dwm.c	2020-06-17 11:20:13.753832200 +0200
-+++ dwm.new/dwm.c	2020-06-17 11:20:47.250337142 +0200
-@@ -243,6 +243,10 @@
+--- dwm/dwm.c	2020-06-17 11:24:41.482979905 +0200
++++ dwm.new/dwm.c	2020-06-17 11:27:21.392845387 +0200
+@@ -215,7 +215,6 @@
+ static void showhide(Client *c);
+ static void sigchld(int unused);
+ static void spawn(const Arg *arg);
+-static void tag(const Arg *arg);
+ static void tagmon(const Arg *arg);
+ static void tile(Monitor *);
+ static void togglebar(const Arg *arg);
+@@ -243,6 +242,10 @@
  static int xerrorstart(Display *dpy, XErrorEvent *ee);
  static void zoom(const Arg *arg);
  
@@ -59,7 +67,7 @@ diff --unified --recursive --text dwm/dwm.c dwm.new/dwm.c
  static pid_t getparentprocess(pid_t p);
  static int isdescprocess(pid_t p, pid_t c);
  static Client *swallowingclient(Window w);
-@@ -261,6 +265,7 @@
+@@ -261,6 +264,7 @@
  static unsigned int numlockmask = 0;
  static void (*handler[LASTEvent]) (XEvent *) = {
  	[ButtonPress] = buttonpress,
@@ -67,7 +75,7 @@ diff --unified --recursive --text dwm/dwm.c dwm.new/dwm.c
  	[ClientMessage] = clientmessage,
  	[ConfigureRequest] = configurerequest,
  	[ConfigureNotify] = configurenotify,
-@@ -268,6 +273,7 @@
+@@ -268,6 +272,7 @@
  	[EnterNotify] = enternotify,
  	[Expose] = expose,
  	[FocusIn] = focusin,
@@ -75,7 +83,7 @@ diff --unified --recursive --text dwm/dwm.c dwm.new/dwm.c
  	[KeyPress] = keypress,
  	[MappingNotify] = mappingnotify,
  	[MapRequest] = maprequest,
-@@ -293,6 +299,42 @@
+@@ -293,6 +298,42 @@
  struct NumTags { char limitexceeded[LENGTH(tags) > 31 ? -1 : 1]; };
  
  /* function implementations */
