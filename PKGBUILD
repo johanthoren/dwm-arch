@@ -24,6 +24,7 @@ source=(dwm.desktop
         dwm-dwmc.diff
         dwm-uselessgap.diff
         dwm-systray.diff
+        dwm-actualfullscreen.diff
         "$_pkgname::git+http://git.suckless.org/dwm"
         config.h)
 md5sums=('939f403a71b6e85261d09fc3412269ee'
@@ -38,6 +39,7 @@ md5sums=('939f403a71b6e85261d09fc3412269ee'
          'da4f14df419398475abdbea628f16f49'
          'd0d9f05b63c1562b8322487d67c4009c'
          '865936e845b7c3045a95915eabe73090'
+         '51569bddcb552cde98dddf64d65e73d1'
          'SKIP'
          'SKIP') # Skipping MD5 check to allow you to put you own config here.
 
@@ -82,6 +84,9 @@ prepare() {
   echo ""
   echo "Adding patch dwm-systray:"
   patch --forward --strip=1 --input="${srcdir}/dwm-systray.diff"
+  echo ""
+  echo "Adding patch dwm-actualfullscreen:"
+  patch --forward --strip=1 --input="${srcdir}/dwm-actualfullscreen.diff"
   echo ""
 
   # If the provided config.h contains something (not empty),
