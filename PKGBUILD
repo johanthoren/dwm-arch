@@ -79,9 +79,9 @@ prepare() {
   find "${srcdir}/" -name dwmc -delete
   patch --forward --strip=1 --input="${srcdir}/dwm-dwmc.diff"
   echo ""
-  echo "Adding patch dwm-uselessgap:"
-  patch --forward --strip=1 --input="${srcdir}/dwm-uselessgap.diff"
-  echo ""
+  #echo "Adding patch dwm-uselessgap:"
+  #patch --forward --strip=1 --input="${srcdir}/dwm-uselessgap.diff"
+  #echo ""
   echo "Adding patch dwm-systray:"
   patch --forward --strip=1 --input="${srcdir}/dwm-systray.diff"
   echo ""
@@ -89,12 +89,12 @@ prepare() {
   patch --forward --strip=1 --input="${srcdir}/dwm-actualfullscreen.diff"
   echo ""
 
-  # If the provided config.h contains something (not empty),
-  # then copy it to be used at build. This way you can customize
-  # the settings.
-  if [[ -s "${srcdir}/config.h" ]]; then
-      cp -fv "${srcdir}/config.h" config.h
-  fi
+  # # If the provided config.h contains something (not empty),
+  # # then copy it to be used at build. This way you can customize
+  # # the settings.
+  # if [[ -s "${srcdir}/config.h" ]]; then
+  #     cp -fv "${srcdir}/config.h" config.h
+  # fi
 }
 
 build() {
