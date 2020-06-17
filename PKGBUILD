@@ -23,6 +23,7 @@ source=(dwm.desktop
         dwm-cyclelayouts.diff
         dwm-dwmc.diff
         dwm-uselessgap.diff
+        dwm-systray.diff
         "$_pkgname::git+http://git.suckless.org/dwm")
 md5sums=('939f403a71b6e85261d09fc3412269ee'
          'c589a9b055c6a48133921a3d92bbcfb3'
@@ -35,6 +36,7 @@ md5sums=('939f403a71b6e85261d09fc3412269ee'
          '09f5c3dcd5cf5ef5deff6b2ce41ab6fb'
          'da4f14df419398475abdbea628f16f49'
          'd0d9f05b63c1562b8322487d67c4009c'
+         '865936e845b7c3045a95915eabe73090'
          'SKIP')
 
 pkgver(){
@@ -75,6 +77,9 @@ prepare() {
   echo ""
   echo "Adding patch dwm-uselessgap:"
   patch --forward --strip=1 --input="${srcdir}/dwm-uselessgap.diff"
+  echo ""
+  echo "Adding patch dwm-systray:"
+  patch --forward --strip=1 --input="${srcdir}/dwm-systray.diff"
   echo ""
 }
 
