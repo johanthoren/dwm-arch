@@ -14,7 +14,7 @@ diff --git a/config.def.h b/config.def.h
 index 1c0b587..8cd3204 100644
 --- a/config.def.h
 +++ b/config.def.h
-@@ -99,6 +99,7 @@ static Key keys[] = {
+@@ -98,6 +98,7 @@ static Key keys[] = {
  	{ MODKEY|ControlMask,           XK_comma,  cyclelayout,    {.i = -1 } },
  	{ MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = +1 } },
  	{ MODKEY,                       XK_space,  setlayout,      {0} },
@@ -26,7 +26,7 @@ diff --git a/dwm.c b/dwm.c
 index 4465af1..c1b899a 100644
 --- a/dwm.c
 +++ b/dwm.c
-@@ -256,6 +256,7 @@ static void tagmon(const Arg *arg);
+@@ -255,6 +255,7 @@ static void tagmon(const Arg *arg);
  static void tile(Monitor *);
  static void togglebar(const Arg *arg);
  static void togglefloating(const Arg *arg);
@@ -34,7 +34,7 @@ index 4465af1..c1b899a 100644
  static void toggletag(const Arg *arg);
  static void toggleview(const Arg *arg);
  static void unfocus(Client *c, int setfocus);
-@@ -2221,6 +2222,13 @@ togglefloating(const Arg *arg)
+@@ -2207,6 +2208,13 @@ togglefloating(const Arg *arg)
  	arrange(selmon);
  }
  

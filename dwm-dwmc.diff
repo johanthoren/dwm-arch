@@ -28,7 +28,7 @@ diff --git a/config.def.h b/config.def.h
 index 1c0b587..efbae79 100644
 --- a/config.def.h
 +++ b/config.def.h
-@@ -130,3 +130,73 @@ static Button buttons[] = {
+@@ -129,3 +129,73 @@ static Button buttons[] = {
  	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
  };
  
@@ -126,7 +126,7 @@ index 4465af1..aa53706 100644
  static void buttonpress(XEvent *e);
  static void checkotherwm(void);
  static void cleanup(void);
-@@ -1173,6 +1179,49 @@ keypress(XEvent *e)
+@@ -1172,6 +1178,49 @@ keypress(XEvent *e)
  			keys[i].func(&(keys[i].arg));
  }
  
@@ -176,7 +176,7 @@ index 4465af1..aa53706 100644
  void
  killclient(const Arg *arg)
  {
-@@ -1398,8 +1447,10 @@ propertynotify(XEvent *e)
+@@ -1397,8 +1446,10 @@ propertynotify(XEvent *e)
  	Window trans;
  	XPropertyEvent *ev = &e->xproperty;
  

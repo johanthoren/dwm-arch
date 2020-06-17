@@ -30,7 +30,7 @@ index a9ac303..153b880 100644
  };
  
  /* key definitions */
-@@ -90,6 +91,8 @@ static Key keys[] = {
+@@ -89,6 +90,8 @@ static Key keys[] = {
  	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
  	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[3]} },
  	{ MODKEY|ShiftMask,             XK_r,      setlayout,      {.v = &layouts[4]} },
@@ -68,7 +68,7 @@ index bb95e26..db73000 100644
  static void destroynotify(XEvent *e);
  static void detach(Client *c);
  static void detachstack(Client *c);
-@@ -799,6 +800,23 @@ createmon(void)
+@@ -798,6 +799,23 @@ createmon(void)
  }
  
  void

@@ -17,7 +17,6 @@ source=(dwm.desktop
         dwm-fibonacci.diff
         dwm-center.diff
         dwm-hide_vacant_tags.diff
-        dwm-resetlayout.diff
         dwm-combo.diff
         dwm-cool-autostart.diff
         dwm-cyclelayouts.diff
@@ -32,14 +31,13 @@ md5sums=('939f403a71b6e85261d09fc3412269ee'
          '1fc41126262be2d1587e44ee4c096bbd'
          'c7934768bd42be5b6ccc76581c1509ab'
          '3b0f29d3c8f2bb386c1f022ec1f061ba'
-         'e4784697bc9fcdcd8182db9b67499209'
-         '15837f8bf83d27b229cec6165db2e78d'
-         'fae24eddc7fd21ee3a8928dd7928f5a6'
-         '09f5c3dcd5cf5ef5deff6b2ce41ab6fb'
-         'da4f14df419398475abdbea628f16f49'
-         'd0d9f05b63c1562b8322487d67c4009c'
-         '865936e845b7c3045a95915eabe73090'
-         '51569bddcb552cde98dddf64d65e73d1'
+         '90faf76c5c83425b9ee695bd4229ea2a'
+         '3ef8266f45fb29b3d9aa4bfe919371d6'
+         '74a6f28f47b6859efd3fd44bccdc13c9'
+         '07efb439cb3591ef282875fc0cef6de4'
+         '915ffe23e967692a55f892962c5c51f2'
+         'f7470f9ca04225b0cdb9700e842bc8ca'
+         'a8139561397258633df0b19309db3bc1'
          'SKIP'
          'SKIP') # Skipping MD5 check to allow you to put you own config here.
 
@@ -63,9 +61,6 @@ prepare() {
   echo "Adding patch dwm-hide_vacant_tags:"
   patch --forward --strip=1 --input="${srcdir}/dwm-hide_vacant_tags.diff"
   echo ""
-  echo "Adding patch dwm-resetlayout:"
-  patch --forward --strip=1 --input="${srcdir}/dwm-resetlayout.diff"
-  echo ""
   echo "Adding patch dwm-combo:"
   patch --forward --strip=1 --input="${srcdir}/dwm-combo.diff"
   echo ""
@@ -79,9 +74,9 @@ prepare() {
   find "${srcdir}/" -name dwmc -delete
   patch --forward --strip=1 --input="${srcdir}/dwm-dwmc.diff"
   echo ""
-  #echo "Adding patch dwm-uselessgap:"
-  #patch --forward --strip=1 --input="${srcdir}/dwm-uselessgap.diff"
-  #echo ""
+  echo "Adding patch dwm-uselessgap:"
+  patch --forward --strip=1 --input="${srcdir}/dwm-uselessgap.diff"
+  echo ""
   echo "Adding patch dwm-systray:"
   patch --forward --strip=1 --input="${srcdir}/dwm-systray.diff"
   echo ""
@@ -89,12 +84,12 @@ prepare() {
   patch --forward --strip=1 --input="${srcdir}/dwm-actualfullscreen.diff"
   echo ""
 
-  # # If the provided config.h contains something (not empty),
-  # # then copy it to be used at build. This way you can customize
-  # # the settings.
-  # if [[ -s "${srcdir}/config.h" ]]; then
-  #     cp -fv "${srcdir}/config.h" config.h
-  # fi
+  # If the provided config.h contains something (not empty),
+  # then copy it to be used at build. This way you can customize
+  # the settings.
+  if [[ -s "${srcdir}/config.h" ]]; then
+      cp -fv "${srcdir}/config.h" config.h
+  fi
 }
 
 build() {
@@ -111,3 +106,4 @@ package() {
 }
 
 # vim:set ts=2 sw=2 et:
+# -*- mode: shell-script;-*-

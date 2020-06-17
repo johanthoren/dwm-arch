@@ -18,7 +18,7 @@ diff --git a/dwm.c b/dwm.c
 index 9fd0286..1facd56 100644
 --- a/dwm.c
 +++ b/dwm.c
-@@ -242,6 +242,7 @@ static int xerror(Display *dpy, XErrorEvent *ee);
+@@ -241,6 +241,7 @@ static int xerror(Display *dpy, XErrorEvent *ee);
  static int xerrordummy(Display *dpy, XErrorEvent *ee);
  static int xerrorstart(Display *dpy, XErrorEvent *ee);
  static void zoom(const Arg *arg);
@@ -26,7 +26,7 @@ index 9fd0286..1facd56 100644
  
  static void keyrelease(XEvent *e);
  static void combotag(const Arg *arg);
-@@ -298,6 +299,34 @@ static Window root, wmcheckwin;
+@@ -297,6 +298,34 @@ static Window root, wmcheckwin;
  /* compile-time check if all tags fit into an unsigned int bit array. */
  struct NumTags { char limitexceeded[LENGTH(tags) > 31 ? -1 : 1]; };
  
@@ -61,7 +61,7 @@ index 9fd0286..1facd56 100644
  /* function implementations */
  static int combo = 0;
  
-@@ -1384,6 +1413,16 @@ propertynotify(XEvent *e)
+@@ -1383,6 +1412,16 @@ propertynotify(XEvent *e)
  void
  quit(const Arg *arg)
  {
@@ -78,7 +78,7 @@ index 9fd0286..1facd56 100644
  	running = 0;
  }
  
-@@ -1786,9 +1825,25 @@ showhide(Client *c)
+@@ -1771,9 +1810,25 @@ showhide(Client *c)
  void
  sigchld(int unused)
  {
@@ -105,7 +105,7 @@ index 9fd0286..1facd56 100644
  }
  
  void
-@@ -2418,6 +2473,7 @@ main(int argc, char *argv[])
+@@ -2403,6 +2458,7 @@ main(int argc, char *argv[])
  	if (!(xcon = XGetXCBConnection(dpy)))
  		die("dwm: cannot get xcb connection\n");
  	checkotherwm();
