@@ -16,7 +16,7 @@ source=(dwm.desktop
         dwm.patch
         "$_pkgname::git+http://git.suckless.org/dwm")
 md5sums=('939f403a71b6e85261d09fc3412269ee'
-         '04e6c79082cb1f99d4921f7cd3c1de24'
+         '29da19bd2aa3c621c7d928f9fe0bfbe7'
          'SKIP')
 
 pkgver(){
