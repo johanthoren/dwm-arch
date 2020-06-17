@@ -22,6 +22,7 @@ source=(dwm.desktop
         dwm-cool-autostart.diff
         dwm-cyclelayouts.diff
         dwm-dwmc.diff
+        dwm-uselessgaps.diff
         "$_pkgname::git+http://git.suckless.org/dwm")
 md5sums=('939f403a71b6e85261d09fc3412269ee'
          'c589a9b055c6a48133921a3d92bbcfb3'
@@ -33,6 +34,7 @@ md5sums=('939f403a71b6e85261d09fc3412269ee'
          '9c71ec8f56c01a46c6cb02fb377f0996'
          '4fe6c456bfcde9dfcd1315912b94b826'
          '1c5b0d5d63479f0985571199f6e90a66'
+         'd0d9f05b63c1562b8322487d67c4009c'
          'SKIP')
 
 pkgver(){
@@ -70,6 +72,9 @@ prepare() {
   echo "Adding patch dwm-dwmc.diff:"
   find "${srcdir}/" -name dwmc -delete
   patch --forward --strip=1 --input="${srcdir}/dwm-dwmc.diff"
+  echo ""
+  echo "Adding patch dwm-uselessgaps.diff:"
+  patch --forward --strip=1 --input="${srcdir}/dwm-uselessgaps.diff"
   echo ""
 }
 
