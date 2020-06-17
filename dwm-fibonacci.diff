@@ -28,7 +28,7 @@ index 1c0b587..5708487 100644
  };
  
  /* key definitions */
-@@ -82,6 +82,8 @@ static Key keys[] = {
+@@ -79,6 +79,8 @@ static Key keys[] = {
  	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
  	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
  	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },

@@ -19,7 +19,7 @@ source=(dwm.desktop
         "$_pkgname::git+http://git.suckless.org/dwm")
 md5sums=('939f403a71b6e85261d09fc3412269ee'
          'c589a9b055c6a48133921a3d92bbcfb3'
-         '067d4e827af7d16a273ca3eb8107165b'
+         '1fc41126262be2d1587e44ee4c096bbd'
          'c7934768bd42be5b6ccc76581c1509ab'
          'SKIP')
 
