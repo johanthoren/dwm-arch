@@ -1,2 +1,3 @@
 post_install() {
+    echo "Johan Thorén's patched DWM has been installed."
 }
