@@ -1,3 +1,4 @@
+# -*- mode: shell-script;-*-
 pkgname=dwm-jt
 _pkgname=dwm
 pkgver=6.2.r6.gf04cac6
@@ -106,4 +107,3 @@ package() {
 }
 
 # vim:set ts=2 sw=2 et:
-# -*- mode: shell-script;-*-
