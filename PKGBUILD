@@ -14,10 +14,8 @@ provides=('dwm')
 conflicts=('dwm')
 source=(dwm.desktop
         "$_pkgname::git+http://git.suckless.org/dwm"
-        config.h)
 md5sums=('939f403a71b6e85261d09fc3412269ee'
          'SKIP'
-         'SKIP') # so you can customize config.h
 
 pkgver(){
   cd $_pkgname
@@ -26,9 +24,6 @@ pkgver(){
 
 prepare() {
   cd $_pkgname
-  if [[ -f "$srcdir/config.h" ]]; then
-    cp -fv "$srcdir/config.h" config.h
-  fi
 }
 
 build() {

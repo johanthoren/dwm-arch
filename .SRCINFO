@@ -16,9 +16,7 @@ pkgbase = dwm-jt
 	options = zipman
 	source = dwm.desktop
 	source = dwm::git+http://git.suckless.org/dwm
-	source = config.h
 	md5sums = 939f403a71b6e85261d09fc3412269ee
-	md5sums = SKIP
 	md5sums = SKIP
 
 pkgname = dwm-jt
