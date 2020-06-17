@@ -13,10 +13,10 @@ install=dwm.install
 provides=('dwm')
 conflicts=('dwm')
 source=(dwm.desktop
-        dwm.patch
+        dwm-swallow-20200522-7accbcf.diff
         "$_pkgname::git+http://git.suckless.org/dwm")
 md5sums=('939f403a71b6e85261d09fc3412269ee'
-         '29da19bd2aa3c621c7d928f9fe0bfbe7'
+         'c589a9b055c6a48133921a3d92bbcfb3'
          'SKIP')
 
 pkgver(){
@@ -26,7 +26,7 @@ pkgver(){
 
 prepare() {
   cd $_pkgname
-  patch --forward --strip=1 --input="${srcdir}/dwm.patch"
+  patch --forward --strip=1 --input="${srcdir}/dwm-swallow-20200522-7accbcf.diff"
 }
 
 build() {
