@@ -25,8 +25,8 @@ source=(dwm.desktop
         dwm-uselessgap.diff
         dwm-systray.diff
         dwm-actualfullscreen.diff
-        "$_pkgname::git+http://git.suckless.org/dwm"
-        config.h)
+        personal_config.diff
+        "$_pkgname::git+http://git.suckless.org/dwm")
 md5sums=('939f403a71b6e85261d09fc3412269ee'
          'c589a9b055c6a48133921a3d92bbcfb3'
          '1fc41126262be2d1587e44ee4c096bbd'
@@ -39,8 +39,8 @@ md5sums=('939f403a71b6e85261d09fc3412269ee'
          '915ffe23e967692a55f892962c5c51f2'
          'f7470f9ca04225b0cdb9700e842bc8ca'
          'a8139561397258633df0b19309db3bc1'
-         'SKIP'
-         'SKIP') # Skipping MD5 check to allow you to put you own config here.
+         '7d7468f4988835e49e92ef224fe39142'
+         'SKIP')
 
 pkgver(){
   cd $_pkgname
@@ -84,13 +84,39 @@ prepare() {
   echo "Adding patch dwm-actualfullscreen:"
   patch --forward --strip=1 --input="${srcdir}/dwm-actualfullscreen.diff"
   echo ""
-
-  # If the provided config.h contains something (not empty),
-  # then copy it to be used at build. This way you can customize
-  # the settings.
-  if [[ -s "${srcdir}/config.h" ]]; then
-      cp -fv "${srcdir}/config.h" config.h
+  echo "Adding patch personal_config:"
+  patch --forward --strip=1 --input="${srcdir}/personal_config.diff"
+  echo ""
+  # This package provides a mechanism to provide a custom config.h. Multiple
+  # configuration states are determined by the presence of two files in
+  # $BUILDDIR:
+  #
+  # config.h  config.def.h  state
+  # ========  ============  =====
+  # absent    absent        Initial state. The user receives a message on how
+  #                         to configure this package.
+  # absent    present       The user was previously made aware of the
+  #                         configuration options and has not made any
+  #                         configuration changes. The package is built using
+  #                         default values.
+  # present                 The user has supplied his or her configuration. The
+  #                         file will be copied to $srcdir and used during
+  #                         build.
+  #
+  # After this test, config.def.h is copied from $srcdir to $BUILDDIR to
+  # provide an up to date template for the user.
+  if [ -e "$BUILDDIR/config.h" ]
+  then
+    cp "$BUILDDIR/config.h" "$_sourcedir"
+  elif [ ! -e "$BUILDDIR/config.def.h" ]
+  then
+    msg='This package can be configured in config.h. Copy the config.def.h '
+    msg+='that was just placed into the package directory to config.h and '
+    msg+='modify it to change the configuration. Or just leave it alone to '
+    msg+='continue to use default values.'
+    warning "$msg"
   fi
+  cp "$_sourcedir/config.def.h" "$BUILDDIR"
 }
 
 build() {
