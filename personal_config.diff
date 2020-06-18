@@ -61,7 +61,7 @@
  };
  
  /* tagging */
-@@ -37,26 +45,29 @@
+@@ -37,26 +45,30 @@
  	 *	WM_CLASS(STRING) = instance, class
  	 *	WM_NAME(STRING) = title
  	 */
@@ -70,13 +70,14 @@
 -	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          0,          -1,        -1 },
 -	{ "st",      NULL,     NULL,           0,         0,          0,          1,          -1,        -1 },
 -	{ NULL,      NULL,     "Event Tester", 0,         0,          1,          0,           1,        -1 }, /* xev */
-+	/* class             instance        title           tags mask    iscenter  isfloating  isterminal  noswallow  monitor */
-+  { "Gimp",            NULL,             NULL,           0,         0,         1,         0,           0,        -1 },
++	/* class             instance          title           tags mask    iscenter  isfloating  isterminal  noswallow  monitor */
++	{ "Gimp",            NULL,             NULL,           0,         0,         1,         0,           0,        -1 },
 +	{ "Chromium",        NULL,             NULL,           1 << 1,    0,         0,         0,           0,        -1 },
 +	{ "Emacs",           NULL,             NULL,           1 << 2,    0,         0,         0,           0,        -1 },
 +	{ NULL,              "itrs.slack.com", NULL,           1 << 0,    0,         0,         0,           0,         1 },
 +	{ NULL,              "web.fuze.com",   NULL,           1 << 1,    0,         0,         0,           0,         1 },
 +	{ "St",              NULL,             NULL,           0,         0,         0,         1,           1,        -1 },
++	{ "st-256color",     NULL,             NULL,           0,         0,         0,         1,           1,        -1 },
 +	{ NULL,              NULL,             "Event Tester", 0,         0,         1,         0,           1,        -1 }, /* xev */
  };
  
