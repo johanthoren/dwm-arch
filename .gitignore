@@ -2,3 +2,4 @@
 pkg/
 dwm/
 src/
+config.def.h

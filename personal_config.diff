@@ -1,4 +1,4 @@
---- src/dwm/config.def.h	2020-06-18 08:31:36.160162076 +0200
+--- dwm/config.def.h	2020-06-18 08:31:36.160162076 +0200
 +++ config.def.h	2020-06-18 08:34:50.103760098 +0200
 @@ -1,32 +1,40 @@
  /* See LICENSE file for copyright and license details. */

@@ -1,6 +1,7 @@
 # -*- mode: shell-script;-*-
 pkgname=dwm-jt
 _pkgname=dwm
+builddir="$(pwd)"
 pkgver=6.2.r6.gf04cac6
 pkgrel=1
 pkgdesc="A dynamic window manager for X - Patched by Johan Thorén"
@@ -39,7 +40,7 @@ md5sums=('939f403a71b6e85261d09fc3412269ee'
          '915ffe23e967692a55f892962c5c51f2'
          'f7470f9ca04225b0cdb9700e842bc8ca'
          'a8139561397258633df0b19309db3bc1'
-         '7d7468f4988835e49e92ef224fe39142'
+         '190e062c65deb0314fcb119d1b672175'
          'SKIP')
 
 pkgver(){
@@ -87,9 +88,10 @@ prepare() {
   echo "Adding patch personal_config:"
   patch --forward --strip=1 --input="${srcdir}/personal_config.diff"
   echo ""
+
   # This package provides a mechanism to provide a custom config.h. Multiple
   # configuration states are determined by the presence of two files in
-  # $BUILDDIR:
+  # $_pkgname:
   #
   # config.h  config.def.h  state
   # ========  ============  =====
@@ -103,20 +105,20 @@ prepare() {
   #                         file will be copied to $srcdir and used during
   #                         build.
   #
-  # After this test, config.def.h is copied from $srcdir to $BUILDDIR to
+  # After this test, config.def.h is copied from $srcdir/src/st to $srcdir to
   # provide an up to date template for the user.
-  if [ -e "$BUILDDIR/config.h" ]
+  if [ -e "${builddir}/config.h" ]
   then
-    cp "$BUILDDIR/config.h" "$_sourcedir"
-  elif [ ! -e "$BUILDDIR/config.def.h" ]
+    cp "${builddir}/config.h" "${srcdir}/${_pkgname}/config.h"
+  elif [ ! -e "${builddir}/config.def.h" ]
   then
-    msg='This package can be configured in config.h. Copy the config.def.h '
+    msg='This package can be configured in config.h. Move the config.def.h '
     msg+='that was just placed into the package directory to config.h and '
     msg+='modify it to change the configuration. Or just leave it alone to '
     msg+='continue to use default values.'
     warning "$msg"
   fi
-  cp "$_sourcedir/config.def.h" "$BUILDDIR"
+  cp "${srcdir}/${_pkgname}/config.def.h" "${builddir}/config.def.h"
 }
 
 build() {
