@@ -3,3 +3,4 @@ pkg/
 dwm/
 src/
 config.def.h
+config.h
