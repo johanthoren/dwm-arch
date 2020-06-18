@@ -42,7 +42,7 @@ md5sums=('939f403a71b6e85261d09fc3412269ee'
          '915ffe23e967692a55f892962c5c51f2'
          'f7470f9ca04225b0cdb9700e842bc8ca'
          'a8139561397258633df0b19309db3bc1'
-         '190e062c65deb0314fcb119d1b672175'
+         'b94a705c77a6caefbd65de7bd449cfe4'
          'SKIP')
 
 pkgver(){

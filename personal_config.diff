@@ -167,7 +167,7 @@
  };
  
  /* button definitions */
-@@ -135,6 +157,24 @@
+@@ -135,6 +157,23 @@
  	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
  };
  
@@ -176,7 +176,6 @@
 +  /* "xrandr", "--auto", NULL, */
 +  "piactl", "connect", NULL,
 +  "start-pulseaudio-x11", NULL,
-+  "xrdb", "-merge", "$HOME/.Xresources", NULL,
 +  "xss-lock", "--", "/usr/bin/i3lock-fancy-rapid", "5", "2", NULL,
 +  "dunst", NULL,
 +  "xbanish", NULL,
