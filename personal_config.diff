@@ -29,8 +29,8 @@
 -static const char col_gray3[]       = "#bbbbbb";
 -static const char col_gray4[]       = "#eeeeee";
 -static const char col_cyan[]        = "#005577";
-+static const char *fonts[]          = { "monospace:size=12" };
-+static const char dmenufont[]       = "monospace:size=12";
++static const char *fonts[]          = { "Source Code Pro:size=12:antialias=true:autohint=true" };
++static const char dmenufont[]       = "Source Code Pro:size=12:antialias=true:autohint=true";
 +static const char col_black[]       = "#000000";
 +static const char col_white[]       = "#ffffff";
 +static const char col_gray1[]       = "#282828";
