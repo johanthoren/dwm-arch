@@ -172,13 +172,12 @@ diff --unified --text dwm/config.def.h dwm.new/config.def.h
  };
  
  /* button definitions */
-@@ -135,6 +160,20 @@
+@@ -135,6 +160,19 @@
  	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
  };
  
 +static const char *const autostart[] = {
 +  "mullvad", "connect", NULL,
-+  "start-pulseaudio-x11", NULL,
 +  "xss-lock", "--", "/usr/bin/i3lock-fancy-rapid", "5", "2", NULL,
 +  "dunst", NULL,
 +  "xbanish", NULL,
