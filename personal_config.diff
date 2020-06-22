@@ -170,7 +170,7 @@
  };
  
  /* button definitions */
-@@ -135,6 +157,21 @@
+@@ -135,6 +157,20 @@
  	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
  };
  
@@ -185,7 +185,6 @@
 +  "picom", NULL,
 +  "dwmblocks", NULL,
 +  "sh", "-c", "$HOME/bin/screen_script.sh", NULL,
-+  "sh", "-c", "$HOME/bin/set_wallpaper.sh", NULL,
 +  NULL /* terminate */
 +};
 +
