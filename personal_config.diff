@@ -150,7 +150,7 @@
  	TAGKEYS(                        XK_8,                      7)
  	TAGKEYS(                        XK_9,                      8)
 -	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-+	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = filecmd } },
++	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = filecmd } },
 +	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("$HOME/bin/dmenussh") },
 +	{ MODKEY|ShiftMask,             XK_v,      spawn,          SHCMD("$HOME/bin/dmenumullvad") },
 +	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("emacsclient -c -a 'emacs'") },
