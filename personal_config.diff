@@ -163,7 +163,7 @@
 +	{ 0,                            XK_F6,     spawn,          SHCMD("playerctl next") },
 +	{ MODKEY,                       XK_F9,     spawn,          SHCMD("$HOME/bin/screen_script.sh") },
 +	{ MODKEY,                       XK_F10,    spawn,          SHCMD("$HOME/bin/screen_script.sh -a") },
-+	{ MODKEY,                       XK_F11,    spawn,          SHCMD("$HOME/.screenlayout/mobile.sh") },
++	{ MODKEY,                       XK_F11,    spawn,          SHCMD("$HOME/bin/screen_script.sh -m") },
 +	{ MODKEY,                       XK_F12,    spawn,          SHCMD("$HOME/bin/connect_airpods.sh") },
 +	{ MODKEY|ShiftMask,             XK_q,      spawn,          SHCMD("i3lock-fancy-rapid 5 2") },
 +	{ MODKEY|ShiftMask,             XK_r,      quit,           {0} },
