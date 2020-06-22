@@ -1,4 +1,5 @@
 *.tar.xz
+TAGS
 pkg/
 dwm/
 src/
