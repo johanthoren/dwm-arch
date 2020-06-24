@@ -50,46 +50,33 @@ pkgver(){
   git describe --long --tags | sed -E 's/([^-]*-g)/r\1/;s/-/./g'
 }
 
+_patch_it() {
+    echo "Adding patch $1"
+    patch --forward --strip=1 --input="${srcdir}/${1}"
+    echo ""
+}
+
 prepare() {
   cd $_pkgname
-  echo "Adding patch dwm-swallow:"
-  patch --forward --strip=1 --input="${srcdir}/dwm-swallow.diff"
-  echo ""
-  echo "Adding patch dwm-fibonacci:"
   find "${srcdir}/" -name fibonacci.c -delete
-  patch --forward --strip=1 --input="${srcdir}/dwm-fibonacci.diff"
-  echo ""
-  echo "Adding patch dwm-center:"
-  patch --forward --strip=1 --input="${srcdir}/dwm-center.diff"
-  echo ""
-  echo "Adding patch dwm-hide_vacant_tags:"
-  patch --forward --strip=1 --input="${srcdir}/dwm-hide_vacant_tags.diff"
-  echo ""
-  echo "Adding patch dwm-combo:"
-  patch --forward --strip=1 --input="${srcdir}/dwm-combo.diff"
-  echo ""
-  echo "Adding patch dwm-cool-autostart:"
-  patch --forward --strip=1 --input="${srcdir}/dwm-cool-autostart.diff"
-  echo ""
-  echo "Adding patch dwm-cyclelayouts:"
-  patch --forward --strip=1 --input="${srcdir}/dwm-cyclelayouts.diff"
-  echo ""
-  echo "Adding patch dwm-dwmc:"
   find "${srcdir}/" -name dwmc -delete
-  patch --forward --strip=1 --input="${srcdir}/dwm-dwmc.diff"
-  echo ""
-  echo "Adding patch dwm-uselessgap:"
-  patch --forward --strip=1 --input="${srcdir}/dwm-uselessgap.diff"
-  echo ""
-  echo "Adding patch dwm-systray:"
-  patch --forward --strip=1 --input="${srcdir}/dwm-systray.diff"
-  echo ""
-  echo "Adding patch dwm-actualfullscreen:"
-  patch --forward --strip=1 --input="${srcdir}/dwm-actualfullscreen.diff"
-  echo ""
-  echo "Adding patch personal_config:"
-  patch --forward --strip=1 --input="${srcdir}/personal_config.diff"
-  echo ""
+
+  patches=(dwm-swallow.diff
+           dwm-fibonacci.diff
+           dwm-center.diff
+           dwm-hide_vacant_tags.diff
+           dwm-combo.diff
+           dwm-cool-autostart.diff
+           dwm-cyclelayouts.diff
+           dwm-dwmc.diff
+           dwm-uselessgap.diff
+           dwm-systray.diff
+           dwm-actualfullscreen.diff
+           personal_config.diff)
+
+  for p in "${patches[@]}"; do
+      _patch_it "$p"
+  done
 
   # This package provides a mechanism to provide a custom config.h. Multiple
   # configuration states are determined by the presence of two files in
