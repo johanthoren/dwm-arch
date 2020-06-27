@@ -1,26 +1,20 @@
-diff --unified --text dwm/config.def.h dwm.new/config.def.h
---- dwm/config.def.h	2020-06-22 13:34:02.499461055 +0200
-+++ dwm.new/config.def.h	2020-06-22 13:34:46.466272972 +0200
-@@ -1,32 +1,40 @@
+diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
+--- dwm/config.def.h	2020-06-27 12:33:23.935812199 +0200
++++ dwm.new/config.def.h	2020-06-27 12:58:38.782389955 +0200
+@@ -1,39 +1,41 @@
  /* See LICENSE file for copyright and license details. */
  
--/* appearance */
+ /* appearance */
 -static const unsigned int borderpx  = 1;        /* border pixel of windows */
--static const unsigned int gappx     = 6;        /* gaps between windows */
--static const unsigned int snap      = 32;       /* snap pixel */
++static const unsigned int borderpx  = 3;        /* border pixel of windows */
+ static const unsigned int gappx     = 6;        /* gaps between windows */
+ static const unsigned int snap      = 32;       /* snap pixel */
 -static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
-+static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
-+
 +static const unsigned int systraypinning = 1;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
  static const unsigned int systrayspacing = 2;   /* systray spacing */
  static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
  static const int showsystray        = 1;     /* 0 means no systray */
--static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
-+
-+/* appearance */
-+static const unsigned int borderpx  = 3;        /* border pixel of windows */
-+static const unsigned int snap      = 32;       /* snap pixel */
-+static const unsigned int gappx     = 6;        /* gaps between windows */
+ static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
  static const int showbar            = 1;        /* 0 means no bar */
  static const int topbar             = 1;        /* 0 means bottom bar */
 -static const char *fonts[]          = { "monospace:size=10" };
@@ -32,8 +26,10 @@ diff --unified --text dwm/config.def.h dwm.new/config.def.h
 -static const char col_cyan[]        = "#005577";
 +static const char *fonts[]          = { "Source Code Pro:size=12:antialias=true:autohint=true" };
 +static const char dmenufont[]       = "Source Code Pro:size=12:antialias=true:autohint=true";
-+static const char col_black[]       = "#000000";
-+static const char col_white[]       = "#ffffff";
+ static const char col_black[]       = "#000000";
+-static const char col_red[]         = "#ff0000";
+-static const char col_yellow[]      = "#ffff00";
+ static const char col_white[]       = "#ffffff";
 +static const char col_gray1[]       = "#282828";
 +static const char col_gray2[]       = "#3C3836";
 +static const char col_gray3[]       = "#504945";
@@ -48,21 +44,26 @@ diff --unified --text dwm/config.def.h dwm.new/config.def.h
 +static const char col_purple[]      = "#b16286";
 +static const char col_red[]         = "#cc241d";
 +static const char col_yellow[]      = "#d79921";
+ 
  static const char *colors[][3]      = {
- 	/*               fg         bg         border   */
--	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
--	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+ 	/*					fg         bg          border   */
+-	[SchemeNorm] =	 { col_gray3, col_gray1,  col_gray2 },
+-	[SchemeSel]  =	 { col_gray4, col_cyan,   col_cyan },
+-	[SchemeWarn] =	 { col_black, col_yellow, col_red },
+-	[SchemeUrgent]=	 { col_white, col_red,    col_red },
 -};
 -
 -static const char *const autostart[] = {
 -	"picom", NULL,
 -	NULL /* terminate */
-+  [SchemeNorm] = { col_cream0, col_gray1, col_gray2 },
-+  [SchemeSel]  = { col_cream1, col_cyan1, col_yellow  },
++	[SchemeNorm] = { col_cream0, col_gray1, col_gray2 },
++	[SchemeSel]  = { col_cream1, col_cyan1, col_yellow  },
++	[SchemeWarn] =	 { col_cream0, col_yellow, col_red },
++	[SchemeUrgent]=	 { col_cream0, col_red,    col_red },
  };
  
  /* tagging */
-@@ -37,26 +45,30 @@
+@@ -44,26 +46,30 @@
  	 *	WM_CLASS(STRING) = instance, class
  	 *	WM_NAME(STRING) = title
  	 */
@@ -102,7 +103,7 @@ diff --unified --text dwm/config.def.h dwm.new/config.def.h
  	{ NULL,       NULL },
  };
  
-@@ -73,13 +85,15 @@
+@@ -80,13 +86,15 @@
  
  /* commands */
  static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -121,7 +122,7 @@ diff --unified --text dwm/config.def.h dwm.new/config.def.h
  	{ MODKEY,                       XK_b,      togglebar,      {0} },
  	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
  	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-@@ -87,19 +101,14 @@
+@@ -94,19 +102,14 @@
  	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
  	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
  	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
@@ -147,7 +148,7 @@ diff --unified --text dwm/config.def.h dwm.new/config.def.h
  	{ MODKEY,                       XK_0,      comboview,      {.ui = ~0 } },
  	{ MODKEY|ShiftMask,             XK_0,      combotag,       {.ui = ~0 } },
  	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-@@ -115,7 +124,23 @@
+@@ -122,7 +125,23 @@
  	TAGKEYS(                        XK_7,                      6)
  	TAGKEYS(                        XK_8,                      7)
  	TAGKEYS(                        XK_9,                      8)
@@ -172,7 +173,7 @@ diff --unified --text dwm/config.def.h dwm.new/config.def.h
  };
  
  /* button definitions */
-@@ -135,6 +160,19 @@
+@@ -142,6 +161,19 @@
  	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
  };
  
@@ -192,7 +193,7 @@ diff --unified --text dwm/config.def.h dwm.new/config.def.h
  void
  setlayoutex(const Arg *arg)
  {
-@@ -144,13 +183,13 @@
+@@ -151,13 +183,13 @@
  void
  viewex(const Arg *arg)
  {
@@ -208,7 +209,7 @@ diff --unified --text dwm/config.def.h dwm.new/config.def.h
  }
  
  void
-@@ -162,7 +201,7 @@
+@@ -169,7 +201,7 @@
  void
  tagex(const Arg *arg)
  {
@@ -217,7 +218,7 @@ diff --unified --text dwm/config.def.h dwm.new/config.def.h
  }
  
  void
-@@ -174,7 +213,7 @@
+@@ -181,7 +213,7 @@
  void
  tagall(const Arg *arg)
  {
@@ -226,12 +227,12 @@ diff --unified --text dwm/config.def.h dwm.new/config.def.h
  }
  
  /* signal definitions */
-@@ -190,15 +229,15 @@
+@@ -197,15 +229,15 @@
  	{ "focusmon",       focusmon },
  	{ "tagmon",         tagmon },
  	{ "zoom",           zoom },
 -	{ "view",           view },
-+	{ "comboview",      comboview },
++	{ "view",           comboview },
  	{ "viewall",        viewall },
  	{ "viewex",         viewex },
 -	{ "toggleview",     view },

@@ -28,6 +28,7 @@ source=(dwm.desktop
         dwm-uselessgap.diff
         dwm-systray.diff
         dwm-actualfullscreen.diff
+        dwm-statuscolors.diff
         personal_config.diff
         "$_pkgname::git+http://git.suckless.org/dwm")
 md5sums=('939f403a71b6e85261d09fc3412269ee'
@@ -42,6 +43,7 @@ md5sums=('939f403a71b6e85261d09fc3412269ee'
          '915ffe23e967692a55f892962c5c51f2'
          'f7470f9ca04225b0cdb9700e842bc8ca'
          'a8139561397258633df0b19309db3bc1'
+         '976a26a1a67bbf23fc7bfb312cc90759'
          'SKIP'
          'SKIP')
 
@@ -72,6 +74,7 @@ prepare() {
            dwm-uselessgap.diff
            dwm-systray.diff
            dwm-actualfullscreen.diff
+           dwm-statuscolors.diff
            personal_config.diff)
 
   for p in "${patches[@]}"; do
