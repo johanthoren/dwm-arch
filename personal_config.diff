@@ -58,8 +58,8 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
 -	NULL /* terminate */
 +	[SchemeNorm] = { col_cream0, col_gray1, col_gray2 },
 +	[SchemeSel]  = { col_cream1, col_cyan1, col_yellow  },
-+	[SchemeWarn] =	 { col_cream0, col_yellow, col_red },
-+	[SchemeUrgent]=	 { col_cream0, col_red,    col_red },
++	[SchemeWarn] =	 { col_yellow, col_gray1, col_red },
++	[SchemeUrgent]=	 { col_red, col_gray1,    col_red },
  };
  
  /* tagging */
