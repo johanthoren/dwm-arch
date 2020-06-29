@@ -60,7 +60,7 @@ index 4465af1..9d9d46f 100644
  enum { NetSupported, NetWMName, NetWMState, NetWMCheck,
         NetSystemTray, NetSystemTrayOP, NetSystemTrayOrientation, NetSystemTrayOrientationHorz,
         NetWMFullscreen, NetActiveWindow, NetWMWindowType,
-@@ -974,14 +974,28 @@ drawbar(Monitor *m)
+@@ -956,16 +956,30 @@ drawbar(Monitor *m)
  	int boxs = drw->fonts->h / 9;
  	int boxw = drw->fonts->h / 6 + 2;
  	unsigned int i, occ = 0, urg = 0;
@@ -90,7 +90,5 @@ index 4465af1..9d9d46f 100644
 +			tp = ++ts;
 +		}
  	}
-
+ 
  	resizebarwin(m);
- 	for (c = m->clients; c; c = c->next) {
-

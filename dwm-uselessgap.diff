@@ -23,7 +23,7 @@ diff --unified --recursive --text dwm/dwm.c dwm.new/dwm.c
  #define TAGMASK                 ((1 << LENGTH(tags)) - 1)
  #define TEXTW(X)                (drw_fontset_getwidth(drw, (X)) + lrpad)
  
-@@ -1519,12 +1519,36 @@
+@@ -1501,12 +1501,36 @@
  resizeclient(Client *c, int x, int y, int w, int h)
  {
  	XWindowChanges wc;

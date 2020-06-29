@@ -63,7 +63,7 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
  };
  
  /* tagging */
-@@ -44,26 +46,30 @@
+@@ -44,23 +46,27 @@
  	 *	WM_CLASS(STRING) = instance, class
  	 *	WM_NAME(STRING) = title
  	 */
@@ -89,21 +89,16 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
 -static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 +static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
  
- #include "fibonacci.c"
  static const Layout layouts[] = {
  	/* symbol     arrange function */
  	{ "[]=",      tile },    /* first entry is default */
 -	{ "><>",      NULL },    /* no layout function means floating behavior */
-+ 	{ "[@]",      spiral },
-+ 	{ "[\\]",      dwindle },
  	{ "[M]",      monocle },
--	{ "[@]",      spiral },
--	{ "[\\]",      dwindle },
 +	{ "><>",      NULL },    /* no layout function means floating behavior */
- 	{ NULL,       NULL },
  };
  
-@@ -80,13 +86,15 @@
+ /* key definitions */
+@@ -76,13 +82,15 @@
  
  /* commands */
  static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -122,7 +117,7 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
  	{ MODKEY,                       XK_b,      togglebar,      {0} },
  	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
  	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-@@ -94,19 +102,14 @@
+@@ -90,15 +98,14 @@
  	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
  	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
  	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
@@ -132,28 +127,25 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
  	{ MODKEY,                       XK_Tab,    comboview,      {0} },
 -	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
 +	{ MODKEY,                       XK_q,      killclient,     {0} },
- 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
+-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 -	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 -	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
--	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[3]} },
--	{ MODKEY|ShiftMask,             XK_r,      setlayout,      {.v = &layouts[4]} },
--	{ MODKEY|ControlMask,           XK_comma,  cyclelayout,    {.i = -1 } },
--	{ MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = +1 } },
 -	{ MODKEY,                       XK_space,  setlayout,      {0} },
 -	{ MODKEY|ShiftMask,             XK_f,      togglefullscr,  {0} },
 -	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-+	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[3]} },
-+	{ MODKEY|ShiftMask,             XK_space,  cyclelayout,    {.i = +1 } },
++	{ MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[0]} },
++	{ MODKEY|ShiftMask,             XK_m,      setlayout,      {.v = &layouts[1]} },
++	{ MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[2]} },
 +	{ MODKEY|ControlMask,           XK_f,      togglefloating, {0} },
  	{ MODKEY,                       XK_0,      comboview,      {.ui = ~0 } },
  	{ MODKEY|ShiftMask,             XK_0,      combotag,       {.ui = ~0 } },
  	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-@@ -122,7 +125,23 @@
+@@ -114,7 +121,23 @@
  	TAGKEYS(                        XK_7,                      6)
  	TAGKEYS(                        XK_8,                      7)
  	TAGKEYS(                        XK_9,                      8)
 -	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-+	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = filecmd } },
++	{ MODKEY|ShiftMask,             XK_r,      spawn,          {.v = filecmd } },
 +	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("$HOME/bin/dmenussh") },
 +	{ MODKEY|ShiftMask,             XK_v,      spawn,          SHCMD("$HOME/bin/dmenumullvad") },
 +	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("emacsclient -c -a 'emacs'") },
@@ -169,11 +161,11 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
 +	{ MODKEY,                       XK_F11,    spawn,          SHCMD("$HOME/bin/screen_script.sh -m") },
 +	{ MODKEY,                       XK_F12,    spawn,          SHCMD("$HOME/bin/connect_airpods.sh") },
 +	{ MODKEY|ShiftMask,             XK_q,      spawn,          SHCMD("i3lock-fancy-rapid 5 2") },
-+	{ MODKEY|ShiftMask,             XK_r,      quit,           {0} },
++	{ MODKEY|ShiftMask,             XK_k,      quit,           {0} },
  };
  
  /* button definitions */
-@@ -142,6 +161,19 @@
+@@ -134,6 +157,19 @@
  	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
  };
  
@@ -193,7 +185,7 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
  void
  setlayoutex(const Arg *arg)
  {
-@@ -151,13 +183,13 @@
+@@ -143,13 +179,13 @@
  void
  viewex(const Arg *arg)
  {
@@ -209,7 +201,7 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
  }
  
  void
-@@ -169,7 +201,7 @@
+@@ -161,7 +197,7 @@
  void
  tagex(const Arg *arg)
  {
@@ -218,7 +210,7 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
  }
  
  void
-@@ -181,7 +213,7 @@
+@@ -173,7 +209,7 @@
  void
  tagall(const Arg *arg)
  {
@@ -227,7 +219,7 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
  }
  
  /* signal definitions */
-@@ -197,15 +229,15 @@
+@@ -189,15 +225,15 @@
  	{ "focusmon",       focusmon },
  	{ "tagmon",         tagmon },
  	{ "zoom",           zoom },
