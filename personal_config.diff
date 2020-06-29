@@ -166,7 +166,7 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
  };
  
  /* button definitions */
-@@ -134,6 +157,19 @@
+@@ -134,6 +157,18 @@
  	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
  };
  
@@ -179,7 +179,7 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
 +  "nm-applet", NULL,
 +  "picom", NULL,
 +  "dwmblocks", NULL,
-+  "sh", "-c", "$HOME/bin/screen_script.sh", NULL,
+#+  "sh", "-c", "$HOME/bin/screen_script.sh", NULL,
 +  NULL /* terminate */
 +};
 +
