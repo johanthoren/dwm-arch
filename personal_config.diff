@@ -161,7 +161,7 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
 +	{ MODKEY,                       XK_F10,    spawn,          SHCMD("$HOME/bin/screen_script.sh -a") },
 +	{ MODKEY,                       XK_F11,    spawn,          SHCMD("$HOME/bin/screen_script.sh -m") },
 +	{ MODKEY,                       XK_F12,    spawn,          SHCMD("$HOME/bin/connect_airpods.sh") },
-+	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("i3lock-fancy-rapid 5 2") },
++	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("i3lock-fancy-rapid 5 2 -u") },
 +	{ MODKEY|ControlMask,           XK_q,      spawn,          SHCMD("$HOME/bin/logout.sh") },
  	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
  };
