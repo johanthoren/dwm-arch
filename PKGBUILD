@@ -11,7 +11,9 @@ arch=('i686' 'x86_64')
 license=('MIT')
 options=(zipman)
 depends=('libx11' 'libxinerama' 'libxft')
-optdepends=('clipmenu' 'dmenu' 'mons' 'picom' 'st')
+optdepends=('clipmenu' 'dmenu' 'dunst' 'dwmblocks' 'i3lock-fancy-rapid-git'
+            'mons' 'mullvad-vpn-cli' 'nm-applet' 'numlockx' 'picom' 'st'
+            'xbanish' 'xss-lock')
 makedepends=('git')
 install=dwm.install
 provides=('dwm')
