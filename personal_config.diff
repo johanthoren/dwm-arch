@@ -1,7 +1,7 @@
 diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
 --- dwm/config.def.h	2020-06-27 12:33:23.935812199 +0200
 +++ dwm.new/config.def.h	2020-06-27 12:58:38.782389955 +0200
-@@ -1,39 +1,41 @@
+@@ -1,32 +1,36 @@
  /* See LICENSE file for copyright and license details. */
  
  /* appearance */
@@ -26,10 +26,6 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
 -static const char col_cyan[]        = "#005577";
 +static const char *fonts[]          = { "Source Code Pro:size=12:antialias=true:autohint=true" };
 +static const char dmenufont[]       = "Source Code Pro:size=12:antialias=true:autohint=true";
- static const char col_black[]       = "#000000";
--static const char col_red[]         = "#ff0000";
--static const char col_yellow[]      = "#ffff00";
- static const char col_white[]       = "#ffffff";
 +static const char col_gray1[]       = "#282828";
 +static const char col_gray2[]       = "#3C3836";
 +static const char col_gray3[]       = "#504945";
@@ -44,26 +40,21 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
 +static const char col_purple[]      = "#b16286";
 +static const char col_red[]         = "#cc241d";
 +static const char col_yellow[]      = "#d79921";
- 
  static const char *colors[][3]      = {
- 	/*					fg         bg          border   */
--	[SchemeNorm] =	 { col_gray3, col_gray1,  col_gray2 },
--	[SchemeSel]  =	 { col_gray4, col_cyan,   col_cyan },
--	[SchemeWarn] =	 { col_black, col_yellow, col_red },
--	[SchemeUrgent]=	 { col_white, col_red,    col_red },
+ 	/*               fg         bg         border   */
+-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
++	[SchemeNorm] = { col_cream0, col_gray1, col_gray2 },
++	[SchemeSel]  = { col_cream1, col_cyan1, col_yellow },
 -};
 -
 -static const char *const autostart[] = {
 -	"picom", NULL,
 -	NULL /* terminate */
-+	[SchemeNorm] = { col_cream0, col_gray1, col_gray2 },
-+	[SchemeSel]  = { col_cream1, col_cyan1, col_yellow  },
-+	[SchemeWarn] =	 { col_yellow, col_gray1, col_red },
-+	[SchemeUrgent]=	 { col_red, col_gray1,    col_red },
  };
  
  /* tagging */
-@@ -44,23 +46,27 @@
+@@ -37,23 +37,27 @@
  	 *	WM_CLASS(STRING) = instance, class
  	 *	WM_NAME(STRING) = title
  	 */
@@ -98,7 +89,7 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
  };
  
  /* key definitions */
-@@ -76,13 +82,16 @@
+@@ -69,13 +73,16 @@
  
  /* commands */
  static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -118,7 +109,7 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
  	{ MODKEY,                       XK_b,      togglebar,      {0} },
  	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
  	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-@@ -90,15 +98,14 @@
+@@ -83,15 +91,14 @@
  	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
  	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
  	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
@@ -141,7 +132,7 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
  	{ MODKEY,                       XK_0,      comboview,      {.ui = ~0 } },
  	{ MODKEY|ShiftMask,             XK_0,      combotag,       {.ui = ~0 } },
  	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-@@ -114,6 +121,24 @@
+@@ -107,6 +113,24 @@
  	TAGKEYS(                        XK_7,                      6)
  	TAGKEYS(                        XK_8,                      7)
  	TAGKEYS(                        XK_9,                      8)
@@ -166,7 +157,7 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
  	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
  };
  
-@@ -134,6 +157,18 @@
+@@ -127,6 +151,18 @@
  	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
  };
  
@@ -186,7 +177,7 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
  void
  setlayoutex(const Arg *arg)
  {
-@@ -143,13 +179,13 @@
+@@ -136,13 +172,13 @@
  void
  viewex(const Arg *arg)
  {
@@ -202,7 +193,7 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
  }
  
  void
-@@ -161,7 +197,7 @@
+@@ -154,7 +190,7 @@
  void
  tagex(const Arg *arg)
  {
@@ -211,7 +202,7 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
  }
  
  void
-@@ -173,7 +209,7 @@
+@@ -166,7 +202,7 @@
  void
  tagall(const Arg *arg)
  {
@@ -220,7 +211,7 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
  }
  
  /* signal definitions */
-@@ -189,15 +225,15 @@
+@@ -182,15 +218,15 @@
  	{ "focusmon",       focusmon },
  	{ "tagmon",         tagmon },
  	{ "zoom",           zoom },
