@@ -162,7 +162,7 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
  };
  
 +static const char *const autostart[] = {
-+  "mullvad", "connect", NULL,
++  "sh", "-c", "$HOME/bin/connect_vpn.sh", NULL,
 +  "xss-lock", "--", "/usr/bin/i3lock-fancy-rapid", "5", "2", "-u", NULL,
 +  "dunst", NULL,
 +  "xbanish", NULL,
@@ -170,7 +170,6 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
 +  "nm-applet", NULL,
 +  "picom", NULL,
 +  "dwmblocks", NULL,
-#+  "sh", "-c", "$HOME/bin/screen_script.sh", NULL,
 +  NULL /* terminate */
 +};
 +
