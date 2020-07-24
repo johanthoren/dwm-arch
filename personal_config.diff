@@ -1,8 +1,10 @@
 diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
 --- dwm/config.def.h	2020-06-27 12:33:23.935812199 +0200
 +++ dwm.new/config.def.h	2020-06-27 12:58:38.782389955 +0200
-@@ -1,32 +1,36 @@
+@@ -1,32 +1,38 @@
  /* See LICENSE file for copyright and license details. */
++
++#include <X11/XF86keysym.h> 
 
  /* appearance */
 -static const unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -97,7 +99,7 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
 -static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 +static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_cream1, "-sb", col_cyan1, "-sf", col_cream1, topbar ? NULL : "-b", NULL };
  static const char *termcmd[]  = { "st", NULL };
-+static const char *clipmenucmd[]  = { "clipmenu",NULL };
++static const char *clipmenucmd[]  = { "clipmenu", NULL };
 +static const char *filecmd[]  = { "st", "-e", "ranger", NULL };
 +static const char *webcmd[]  = { "chromium", NULL };
 
@@ -133,7 +135,7 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
  	{ MODKEY,                       XK_0,      comboview,      {.ui = ~0 } },
  	{ MODKEY|ShiftMask,             XK_0,      combotag,       {.ui = ~0 } },
  	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-@@ -107,6 +113,24 @@
+@@ -107,6 +113,25 @@
  	TAGKEYS(                        XK_7,                      6)
  	TAGKEYS(                        XK_8,                      7)
  	TAGKEYS(                        XK_9,                      8)
@@ -149,6 +151,7 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
 +	{ 0,                            XK_F4,     spawn,          SHCMD("playerctl play-pause") },
 +	{ 0,                            XK_F5,     spawn,          SHCMD("playerctl previous") },
 +	{ 0,                            XK_F6,     spawn,          SHCMD("playerctl next") },
++	{ 0,                            XF86XK_Calculator, spawn,  SHCMD("$HOME/bin/calc.sh") },
 +	{ MODKEY,                       XK_F9,     spawn,          SHCMD("$HOME/bin/screen_script.sh") },
 +	{ MODKEY,                       XK_F10,    spawn,          SHCMD("$HOME/bin/screen_script.sh -a") },
 +	{ MODKEY,                       XK_F11,    spawn,          SHCMD("$HOME/bin/screen_script.sh -m") },
