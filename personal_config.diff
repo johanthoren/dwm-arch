@@ -1,11 +1,11 @@
-diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
---- dwm/config.def.h	2020-06-27 12:33:23.935812199 +0200
-+++ dwm.new/config.def.h	2020-06-27 12:58:38.782389955 +0200
-@@ -1,32 +1,38 @@
+diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
+--- dwm/config.def.h	2020-07-24 13:57:31.848427949 +0200
++++ dwm.new/config.def.h	2020-07-24 14:09:48.384410077 +0200
+@@ -1,27 +1,38 @@
  /* See LICENSE file for copyright and license details. */
+ 
++#include <X11/XF86keysym.h>
 +
-+#include <X11/XF86keysym.h> 
-
  /* appearance */
 -static const unsigned int borderpx  = 1;        /* border pixel of windows */
 +static const unsigned int borderpx  = 3;        /* border pixel of windows */
@@ -48,15 +48,22 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
 -	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 +	[SchemeNorm] = { col_cream0, col_gray1, col_gray2 },
 +	[SchemeSel]  = { col_cream1, col_cyan1, col_yellow },
--};
--
+ };
+ 
+ typedef struct {
+@@ -38,11 +49,6 @@
+ 	{"spcalc",      spcmd3},
+ };
+ 
 -static const char *const autostart[] = {
 -	"picom", NULL,
 -	NULL /* terminate */
- };
-
+-};
+-
  /* tagging */
-@@ -37,23 +37,28 @@
+ static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+ 
+@@ -51,26 +57,31 @@
  	 *	WM_CLASS(STRING) = instance, class
  	 *	WM_NAME(STRING) = title
  	 */
@@ -65,6 +72,9 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
 -	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          0,          -1,        -1 },
 -	{ "st",      NULL,     NULL,           0,         0,          0,          1,          -1,        -1 },
 -	{ NULL,      NULL,     "Event Tester", 0,         0,          1,          0,           1,        -1 }, /* xev */
+-	{ NULL,		 "spterm", NULL,		   SPTAG(0),  0,          1,          1,          -1,        -1 },
+-	{ NULL,		 "spfm",   NULL,		   SPTAG(1),  0,          1,          1,          -1,        -1 },
+-	{ NULL,		 "spcalc", NULL,		   SPTAG(2),  0,          1,          1,          -1,        -1 },
 +	/* class             instance          title           tags mask  iscenter  isfloating  isterminal   noswallow  monitor */
 +	{ "Gimp",            NULL,             NULL,           0,         0,         1,         0,           0,        -1 },
 +	{ "Chromium",        "chromium",       NULL,           1 << 1,    0,         0,         0,           0,        -1 },
@@ -75,14 +85,17 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
 +	{ "St",              NULL,             NULL,           0,         0,         0,         1,           1,        -1 },
 +	{ "st-256color",     NULL,             NULL,           0,         0,         0,         1,           1,        -1 },
 +	{ NULL,              NULL,             "Event Tester", 0,         0,         1,         0,           1,        -1 }, /* xev */
++	{ NULL,		         "spterm",         NULL,		   SPTAG(0),  0,         1,         1,          -1,        -1 },
++	{ NULL,		         "spfm",           NULL,		   SPTAG(1),  0,         1,         1,          -1,        -1 },
++	{ NULL,		         "spcalc",         NULL,		   SPTAG(2),  0,         1,         1,           1,        -1 },
  };
-
+ 
  /* layout(s) */
  static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
  static const int nmaster     = 1;    /* number of clients in master area */
 -static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 +static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
-
+ 
  static const Layout layouts[] = {
  	/* symbol     arrange function */
  	{ "[]=",      tile },    /* first entry is default */
@@ -90,10 +103,10 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
  	{ "[M]",      monocle },
 +	{ "><>",      NULL },    /* no layout function means floating behavior */
  };
-
+ 
  /* key definitions */
-@@ -69,13 +73,16 @@
-
+@@ -86,13 +97,16 @@
+ 
  /* commands */
  static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 -static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
@@ -102,7 +115,7 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
 +static const char *clipmenucmd[]  = { "clipmenu", NULL };
 +static const char *filecmd[]  = { "st", "-e", "ranger", NULL };
 +static const char *webcmd[]  = { "chromium", NULL };
-
+ 
  static Key keys[] = {
  	/* modifier                     key        function        argument */
 -	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -112,7 +125,7 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
  	{ MODKEY,                       XK_b,      togglebar,      {0} },
  	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
  	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-@@ -83,15 +91,14 @@
+@@ -100,15 +114,14 @@
  	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
  	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
  	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
@@ -121,13 +134,13 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
 +	{ MODKEY,                       XK_space,  zoom,           {0} },
  	{ MODKEY,                       XK_Tab,    comboview,      {0} },
 -	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
-+	{ MODKEY,                       XK_q,      killclient,     {0} },
 -	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 -	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 -	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 -	{ MODKEY,                       XK_space,  setlayout,      {0} },
 -	{ MODKEY|ShiftMask,             XK_f,      togglefullscr,  {0} },
 -	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
++	{ MODKEY,                       XK_q,      killclient,     {0} },
 +	{ MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[0]} },
 +	{ MODKEY|ShiftMask,             XK_m,      setlayout,      {.v = &layouts[1]} },
 +	{ MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[2]} },
@@ -135,7 +148,16 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
  	{ MODKEY,                       XK_0,      comboview,      {.ui = ~0 } },
  	{ MODKEY|ShiftMask,             XK_0,      combotag,       {.ui = ~0 } },
  	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-@@ -107,6 +113,25 @@
+@@ -117,7 +130,7 @@
+ 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+ 	{ MODKEY,            			XK_y,  	   togglescratch,  {.ui = 0 } },
+ 	{ MODKEY,            			XK_u,	   togglescratch,  {.ui = 1 } },
+-   { 0,                            XF86XK_Calculator,         togglescratch,   {.ui = 2 } },
++    { 0,                            XF86XK_Calculator,         togglescratch,   {.ui = 2 } },
+ 	TAGKEYS(                        XK_1,                      0)
+ 	TAGKEYS(                        XK_2,                      1)
+ 	TAGKEYS(                        XK_3,                      2)
+@@ -127,6 +140,24 @@
  	TAGKEYS(                        XK_7,                      6)
  	TAGKEYS(                        XK_8,                      7)
  	TAGKEYS(                        XK_9,                      8)
@@ -151,7 +173,6 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
 +	{ 0,                            XK_F4,     spawn,          SHCMD("playerctl play-pause") },
 +	{ 0,                            XK_F5,     spawn,          SHCMD("playerctl previous") },
 +	{ 0,                            XK_F6,     spawn,          SHCMD("playerctl next") },
-+	{ 0,                            XF86XK_Calculator, spawn,  SHCMD("$HOME/bin/calc.sh") },
 +	{ MODKEY,                       XK_F9,     spawn,          SHCMD("$HOME/bin/screen_script.sh") },
 +	{ MODKEY,                       XK_F10,    spawn,          SHCMD("$HOME/bin/screen_script.sh -a") },
 +	{ MODKEY,                       XK_F11,    spawn,          SHCMD("$HOME/bin/screen_script.sh -m") },
@@ -160,11 +181,11 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
 +	{ MODKEY|ControlMask,           XK_q,      spawn,          SHCMD("$HOME/bin/logout.sh") },
  	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
  };
-
-@@ -127,6 +151,18 @@
+ 
+@@ -147,6 +178,18 @@
  	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
  };
-
+ 
 +static const char *const autostart[] = {
 +  "sh", "-c", "$HOME/bin/connect_vpn.sh", NULL,
 +  "xss-lock", "--", "/usr/bin/i3lock-fancy-rapid", "5", "2", "-u", NULL,
@@ -180,41 +201,41 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
  void
  setlayoutex(const Arg *arg)
  {
-@@ -136,13 +172,13 @@
+@@ -156,13 +199,13 @@
  void
  viewex(const Arg *arg)
  {
 -	view(&((Arg) { .ui = 1 << arg->ui }));
 +	comboview(&((Arg) { .ui = 1 << arg->ui }));
  }
-
+ 
  void
  viewall(const Arg *arg)
  {
 -	view(&((Arg){.ui = ~0}));
 +	comboview(&((Arg){.ui = ~0}));
  }
-
+ 
  void
-@@ -154,7 +190,7 @@
+@@ -174,7 +217,7 @@
  void
  tagex(const Arg *arg)
  {
 -	tag(&((Arg) { .ui = 1 << arg->ui }));
 +	combotag(&((Arg) { .ui = 1 << arg->ui }));
  }
-
+ 
  void
-@@ -166,7 +202,7 @@
+@@ -186,7 +229,7 @@
  void
  tagall(const Arg *arg)
  {
 -	tag(&((Arg){.ui = ~0}));
 +	combotag(&((Arg){.ui = ~0}));
  }
-
+ 
  /* signal definitions */
-@@ -182,15 +218,15 @@
+@@ -202,15 +245,15 @@
  	{ "focusmon",       focusmon },
  	{ "tagmon",         tagmon },
  	{ "zoom",           zoom },
@@ -226,7 +247,7 @@ diff --unified --recursive --text dwm/config.def.h dwm.new/config.def.h
 +	{ "toggleview",     comboview },
  	{ "toggleviewex",   toggleviewex },
 -	{ "tag",            tag },
-+	{ "combotag",       combotag },
++	{ "tag",            combotag },
  	{ "tagall",         tagall },
  	{ "tagex",          tagex },
 -	{ "toggletag",      tag },
