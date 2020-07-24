@@ -12,8 +12,8 @@ license=('MIT')
 options=(zipman)
 depends=('libx11' 'libxinerama' 'libxft')
 optdepends=('clipmenu' 'dmenu' 'dunst' 'dwmblocks' 'i3lock-fancy-rapid-git'
-            'mons' 'mullvad-vpn-cli' 'nm-applet' 'numlockx' 'picom' 'st'
-            'xbanish' 'xss-lock')
+            'libqalculate' 'mons' 'mullvad-vpn-cli' 'nm-applet' 'numlockx'
+            'picom' 'st' 'xbanish' 'xss-lock')
 makedepends=('git')
 install=dwm.install
 provides=('dwm')
@@ -41,7 +41,7 @@ md5sums=('939f403a71b6e85261d09fc3412269ee'
          'f12792c12a853119f88aba7c500b9f5b'
          '4021ce17c9672c0a23c68558e99796e2'
          '645f339a573740ea6c5b184cfdec880b'
-         'e41a302a6cc926fee58283e3be013896'
+         '2a026433f757625eaf9af677ab3a373b'
          'SKIP'
          'SKIP')
 

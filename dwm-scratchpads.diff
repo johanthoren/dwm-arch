@@ -11,7 +11,7 @@ diff --color --unified --text --color dwm/config.def.h dwm.new/config.def.h
 +} Sp;
 +const char *spcmd1[] = {"st", "-n", "spterm", "-g", "120x34", NULL };
 +const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x41", "-e", "ranger", NULL };
-+const char *spcmd3[] = {"st", "-n", "spcalc", "-g", "120x34", "-e", "qalc", NULL };
++const char *spcmd3[] = {"st", "-n", "spcalc", "-g", "80x30", "-e", "qalc", NULL };
 +static Sp scratchpads[] = {
 +	/* name          cmd  */
 +	{"spterm",      spcmd1},
@@ -36,9 +36,9 @@ diff --color --unified --text --color dwm/config.def.h dwm.new/config.def.h
  	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
  	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
  	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-+	{ MODKEY,            			XK_y,  	   togglescratch,  {.ui = 0 } },
-+	{ MODKEY,            			XK_u,	   togglescratch,  {.ui = 1 } },
-+   { 0,                            XF86XK_Calculator,         togglescratch,   {.ui = 2 } },
++	{ MODKEY,            			XK_y,      togglescratch,  {.ui = 0 } },
++	{ MODKEY,            			XK_u,      togglescratch,  {.ui = 1 } },
++	{ 0,                            XF86XK_Calculator,         togglescratch,   {.ui = 2 } },
  	TAGKEYS(                        XK_1,                      0)
  	TAGKEYS(                        XK_2,                      1)
  	TAGKEYS(                        XK_3,                      2)

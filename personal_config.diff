@@ -3,7 +3,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
 +++ dwm.new/config.def.h	2020-07-24 14:09:48.384410077 +0200
 @@ -1,27 +1,38 @@
  /* See LICENSE file for copyright and license details. */
- 
+
 +#include <X11/XF86keysym.h>
 +
  /* appearance */
@@ -49,12 +49,12 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
 +	[SchemeNorm] = { col_cream0, col_gray1, col_gray2 },
 +	[SchemeSel]  = { col_cream1, col_cyan1, col_yellow },
  };
- 
+
  typedef struct {
 @@ -38,11 +49,6 @@
  	{"spcalc",      spcmd3},
  };
- 
+
 -static const char *const autostart[] = {
 -	"picom", NULL,
 -	NULL /* terminate */
@@ -62,7 +62,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
 -
  /* tagging */
  static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
- 
+
 @@ -51,26 +57,31 @@
  	 *	WM_CLASS(STRING) = instance, class
  	 *	WM_NAME(STRING) = title
@@ -89,13 +89,13 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
 +	{ NULL,		         "spfm",           NULL,		   SPTAG(1),  0,         1,         1,          -1,        -1 },
 +	{ NULL,		         "spcalc",         NULL,		   SPTAG(2),  0,         1,         1,           1,        -1 },
  };
- 
+
  /* layout(s) */
  static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
  static const int nmaster     = 1;    /* number of clients in master area */
 -static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 +static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
- 
+
  static const Layout layouts[] = {
  	/* symbol     arrange function */
  	{ "[]=",      tile },    /* first entry is default */
@@ -103,10 +103,10 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  	{ "[M]",      monocle },
 +	{ "><>",      NULL },    /* no layout function means floating behavior */
  };
- 
+
  /* key definitions */
 @@ -86,13 +97,16 @@
- 
+
  /* commands */
  static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 -static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
@@ -115,7 +115,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
 +static const char *clipmenucmd[]  = { "clipmenu", NULL };
 +static const char *filecmd[]  = { "st", "-e", "ranger", NULL };
 +static const char *webcmd[]  = { "chromium", NULL };
- 
+
  static Key keys[] = {
  	/* modifier                     key        function        argument */
 -	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -148,15 +148,6 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  	{ MODKEY,                       XK_0,      comboview,      {.ui = ~0 } },
  	{ MODKEY|ShiftMask,             XK_0,      combotag,       {.ui = ~0 } },
  	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-@@ -117,7 +130,7 @@
- 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
- 	{ MODKEY,            			XK_y,  	   togglescratch,  {.ui = 0 } },
- 	{ MODKEY,            			XK_u,	   togglescratch,  {.ui = 1 } },
--   { 0,                            XF86XK_Calculator,         togglescratch,   {.ui = 2 } },
-+    { 0,                            XF86XK_Calculator,         togglescratch,   {.ui = 2 } },
- 	TAGKEYS(                        XK_1,                      0)
- 	TAGKEYS(                        XK_2,                      1)
- 	TAGKEYS(                        XK_3,                      2)
 @@ -127,6 +140,24 @@
  	TAGKEYS(                        XK_7,                      6)
  	TAGKEYS(                        XK_8,                      7)
@@ -181,11 +172,11 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
 +	{ MODKEY|ControlMask,           XK_q,      spawn,          SHCMD("$HOME/bin/logout.sh") },
  	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
  };
- 
+
 @@ -147,6 +178,18 @@
  	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
  };
- 
+
 +static const char *const autostart[] = {
 +  "sh", "-c", "$HOME/bin/connect_vpn.sh", NULL,
 +  "xss-lock", "--", "/usr/bin/i3lock-fancy-rapid", "5", "2", "-u", NULL,
@@ -208,14 +199,14 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
 -	view(&((Arg) { .ui = 1 << arg->ui }));
 +	comboview(&((Arg) { .ui = 1 << arg->ui }));
  }
- 
+
  void
  viewall(const Arg *arg)
  {
 -	view(&((Arg){.ui = ~0}));
 +	comboview(&((Arg){.ui = ~0}));
  }
- 
+
  void
 @@ -174,7 +217,7 @@
  void
@@ -224,7 +215,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
 -	tag(&((Arg) { .ui = 1 << arg->ui }));
 +	combotag(&((Arg) { .ui = 1 << arg->ui }));
  }
- 
+
  void
 @@ -186,7 +229,7 @@
  void
@@ -233,7 +224,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
 -	tag(&((Arg){.ui = ~0}));
 +	combotag(&((Arg){.ui = ~0}));
  }
- 
+
  /* signal definitions */
 @@ -202,15 +245,15 @@
  	{ "focusmon",       focusmon },
