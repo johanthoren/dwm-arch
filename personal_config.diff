@@ -152,10 +152,11 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  	{ MODKEY,                       XK_0,      comboview,      {.ui = ~0 } },
  	{ MODKEY|ShiftMask,             XK_0,      combotag,       {.ui = ~0 } },
  	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-@@ -127,6 +140,24 @@
+@@ -127,6 +140,25 @@
  	TAGKEYS(                        XK_7,                      6)
  	TAGKEYS(                        XK_8,                      7)
  	TAGKEYS(                        XK_9,                      8)
++	{ MODKEY,                       XK_o,      spawn,          SHCMD("org-capture") },
 +	{ MODKEY|ShiftMask,             XK_r,      spawn,          {.v = filecmd } },
 +	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("$HOME/bin/dmenussh") },
 +	{ MODKEY,                       XK_c,      spawn,          {.v = clipmenucmd } },
