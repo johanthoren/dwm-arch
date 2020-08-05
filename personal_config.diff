@@ -79,7 +79,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
 +	{ "Gimp",            NULL,             NULL,           0,         0,         1,         0,           0,        -1 },
 +	{ "Chromium",        "chromium",       NULL,           1 << 1,    0,         0,         0,           0,        -1 },
 +	{ "Brave-browser",   "brave-browser",  NULL,           1 << 1,    0,         0,         0,           0,        -1 },
-+	{ "firefoxdeveloperedition",       "Navigator",  NULL, 1 << 1,    0,         0,         0,           0,        -1 },
++	{ "firefox",         "Navigator",      NULL,           1 << 1,    0,         0,         0,           0,        -1 },
 +	{ "Emacs",           NULL,             NULL,           1 << 2,    0,         0,         0,           0,        -1 },
 +	{ "Slack",           NULL,             NULL,           1 << 3,    0,         0,         0,           0,        -1 },
 +	{ NULL,              "itrs.slack.com", NULL,           1 << 3,    0,         0,         0,           0,        -1 },
@@ -117,7 +117,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  static const char *termcmd[]  = { "st", NULL };
 +static const char *clipmenucmd[]  = { "clipmenu", NULL };
 +static const char *filecmd[]  = { "st", "-e", "ranger", NULL };
-+static const char *webcmd[]  = { "firefox-developer-edition", NULL };
++static const char *webcmd[]  = { "firefox", NULL };
 
  static Key keys[] = {
  	/* modifier                     key        function        argument */
