@@ -156,8 +156,8 @@ index 9fd0286..ed42af7 100644
  			arg.ui = 1 << i;
  		} else if (ev->x < x + blw)
  			click = ClkLtSymbol;
--		else if (ev->x > selmon->ww - TEXTW(stext))
-+		else if (ev->x > selmon->ww - TEXTW(stext) - getsystraywidth())
+-		else if (ev->x > selmon->ww - (int)TEXTW(stext))
++		else if (ev->x > selmon->ww - (int)TEXTW(stext) - getsystraywidth())
  			click = ClkStatusText;
  		else
  			click = ClkWinTitle;
