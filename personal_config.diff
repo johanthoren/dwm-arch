@@ -84,7 +84,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
 +	{ "Slack",           NULL,             NULL,           1 << 3,    0,         0,         0,           0,        -1 },
 +	{ NULL,              "itrs.slack.com", NULL,           1 << 3,    0,         0,         0,           0,        -1 },
 +	{ NULL,              "web.fuze.com",   NULL,           1 << 4,    0,         0,         0,           0,        -1 },
-+	{ "discord",         NULL,             NULL,           1 << 5,    0,         0,         0,           0,        -1 },
++	{ "Microsoft Teams - Preview", NULL,   NULL,           1 << 5,    0,         0,         0,           0,        -1 },
 +	{ "St",              NULL,             NULL,           0,         0,         0,         1,           1,        -1 },
 +	{ "st-256color",     NULL,             NULL,           0,         0,         0,         1,           1,        -1 },
 +	{ NULL,              NULL,             "Event Tester", 0,         0,         1,         0,           1,        -1 }, /* xev */
