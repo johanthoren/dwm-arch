@@ -161,7 +161,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
 +	{ MODKEY|ShiftMask,             XK_r,      spawn,          {.v = filecmd } },
 +	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("$HOME/bin/dmenussh") },
 +	{ MODKEY,                       XK_c,      spawn,          {.v = clipmenucmd } },
-+	{ MODKEY|ShiftMask,             XK_v,      spawn,          SHCMD("$HOME/bin/mullvad-dmenu.sh") },
++	{ MODKEY|ShiftMask,             XK_v,      spawn,          SHCMD("$HOME/bin/dmenu-mullvad.sh") },
 +	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("emacsclient -c -a 'emacs'") },
 +	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = webcmd } },
 +	{ 0,                            XK_F1,     spawn,          SHCMD("pactl -- set-sink-mute @DEFAULT_SINK@ toggle") },
