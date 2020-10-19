@@ -108,7 +108,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  };
 
  /* key definitions */
-@@ -86,29 +97,31 @@
+@@ -86,29 +97,30 @@
 
  /* commands */
  static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -117,7 +117,6 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  static const char *termcmd[]  = { "st", NULL };
 +static const char *clipmenucmd[]  = { "clipmenu", NULL };
 +static const char *filecmd[]  = { "st", "-e", "ranger", NULL };
-+static const char *webcmd[]  = { "firefox", NULL };
 
  static Key keys[] = {
  	/* modifier                     key        function        argument */
@@ -163,7 +162,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
 +	{ MODKEY,                       XK_c,      spawn,          {.v = clipmenucmd } },
 +	{ MODKEY|ShiftMask,             XK_v,      spawn,          SHCMD("$HOME/bin/dmenu-mullvad.sh") },
 +	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("emacsclient -c -a 'emacs'") },
-+	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = webcmd } },
++	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("$BROWSER") },
 +	{ 0,                            XK_F1,     spawn,          SHCMD("pactl -- set-sink-mute @DEFAULT_SINK@ toggle") },
 +	{ 0,                            XK_F2,     spawn,          SHCMD("pactl -- set-sink-volume @DEFAULT_SINK@ -5%") },
 +	{ 0,                            XK_F3,     spawn,          SHCMD("pactl -- set-sink-volume @DEFAULT_SINK@ +5%") },
