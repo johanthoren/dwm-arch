@@ -63,7 +63,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  /* tagging */
  static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
-@@ -51,26 +57,35 @@
+@@ -51,26 +57,36 @@
  	 *	WM_CLASS(STRING) = instance, class
  	 *	WM_NAME(STRING) = title
  	 */
@@ -84,7 +84,8 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
 +	{ "Slack",           NULL,             NULL,           1 << 3,    0,         0,         0,           0,        -1 },
 +	{ "FreeTube",        "freetube",       NULL,           1 << 3,    0,         0,         0,           0,        -1 },
 +	{ NULL,              "itrs.slack.com", NULL,           1 << 3,    0,         0,         0,           0,        -1 },
-+	{ "Microsoft Teams - Preview", NULL,   NULL,           1 << 4,    0,         0,         0,           0,        -1 },
++	{ "Signal",          "signal",         NULL,           1 << 4,    0,         0,         0,           0,        -1 },
++	{ "Microsoft Teams - Preview", NULL,   NULL,           1 << 5,    0,         0,         0,           0,        -1 },
 +	{ NULL,              "web.fuze.com",   NULL,           1 << 5,    0,         0,         0,           0,        -1 },
 +	{ "St",              NULL,             NULL,           0,         0,         0,         1,           1,        -1 },
 +	{ "st-256color",     NULL,             NULL,           0,         0,         0,         1,           1,        -1 },
@@ -109,7 +110,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  };
 
  /* key definitions */
-@@ -86,29 +98,30 @@
+@@ -86,29 +99,30 @@
 
  /* commands */
  static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -153,7 +154,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  	{ MODKEY,                       XK_0,      comboview,      {.ui = ~0 } },
  	{ MODKEY|ShiftMask,             XK_0,      combotag,       {.ui = ~0 } },
  	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-@@ -127,6 +141,25 @@
+@@ -127,6 +142,26 @@
  	TAGKEYS(                        XK_7,                      6)
  	TAGKEYS(                        XK_8,                      7)
  	TAGKEYS(                        XK_9,                      8)
@@ -170,6 +171,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
 +	{ 0,                            XK_F4,     spawn,          SHCMD("playerctl play-pause") },
 +	{ 0,                            XK_F5,     spawn,          SHCMD("playerctl previous") },
 +	{ 0,                            XK_F6,     spawn,          SHCMD("playerctl next") },
++	{ MODKEY,                       XK_F8,     spawn,          SHCMD("$HOME/bin/launch_apps.sh") },
 +	{ MODKEY,                       XK_F9,     spawn,          SHCMD("$HOME/bin/screen_script.sh") },
 +	{ MODKEY,                       XK_F10,    spawn,          SHCMD("$HOME/bin/screen_script.sh -a") },
 +	{ MODKEY,                       XK_F11,    spawn,          SHCMD("$HOME/bin/screen_script.sh -m") },
@@ -179,7 +181,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
  };
 
-@@ -147,6 +179,18 @@
+@@ -147,6 +180,18 @@
  	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
  };
 
@@ -198,7 +200,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  void
  setlayoutex(const Arg *arg)
  {
-@@ -156,13 +200,13 @@
+@@ -156,13 +201,13 @@
  void
  viewex(const Arg *arg)
  {
@@ -214,7 +216,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  }
 
  void
-@@ -174,7 +218,7 @@
+@@ -174,7 +219,7 @@
  void
  tagex(const Arg *arg)
  {
@@ -223,7 +225,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  }
 
  void
-@@ -186,7 +230,7 @@
+@@ -186,7 +231,7 @@
  void
  tagall(const Arg *arg)
  {
@@ -232,7 +234,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  }
 
  /* signal definitions */
-@@ -202,15 +246,15 @@
+@@ -202,15 +247,15 @@
  	{ "focusmon",       focusmon },
  	{ "tagmon",         tagmon },
  	{ "zoom",           zoom },
