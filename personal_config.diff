@@ -1,10 +1,11 @@
 diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
 --- dwm/config.def.h	2020-07-24 13:57:31.848427949 +0200
 +++ dwm.new/config.def.h	2020-07-24 14:09:48.384410077 +0200
-@@ -2,28 +2,37 @@
+@@ -1,27 +1,38 @@
+ /* See LICENSE file for copyright and license details. */
 
- #include <X11/XF86keysym.h>
-
++#include <X11/XF86keysym.h>
++
  /* appearance */
 -static const unsigned int borderpx  = 1;        /* border pixel of windows */
 +static const unsigned int borderpx  = 3;        /* border pixel of windows */
@@ -180,7 +181,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
  };
 
-@@ -147,3 +180,15 @@
+@@ -147,6 +180,18 @@
  	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
  };
 
@@ -196,3 +197,60 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
 +  NULL /* terminate */
 +};
 +
+ void
+ setlayoutex(const Arg *arg)
+ {
+@@ -156,13 +201,13 @@
+ void
+ viewex(const Arg *arg)
+ {
+-	view(&((Arg) { .ui = 1 << arg->ui }));
++	comboview(&((Arg) { .ui = 1 << arg->ui }));
+ }
+
+ void
+ viewall(const Arg *arg)
+ {
+-	view(&((Arg){.ui = ~0}));
++	comboview(&((Arg){.ui = ~0}));
+ }
+
+ void
+@@ -174,7 +219,7 @@
+ void
+ tagex(const Arg *arg)
+ {
+-	tag(&((Arg) { .ui = 1 << arg->ui }));
++	combotag(&((Arg) { .ui = 1 << arg->ui }));
+ }
+
+ void
+@@ -186,7 +231,7 @@
+ void
+ tagall(const Arg *arg)
+ {
+-	tag(&((Arg){.ui = ~0}));
++	combotag(&((Arg){.ui = ~0}));
+ }
+
+ /* signal definitions */
+@@ -202,15 +247,15 @@
+ 	{ "focusmon",       focusmon },
+ 	{ "tagmon",         tagmon },
+ 	{ "zoom",           zoom },
+-	{ "view",           view },
++	{ "view",           comboview },
+ 	{ "viewall",        viewall },
+ 	{ "viewex",         viewex },
+-	{ "toggleview",     view },
++	{ "toggleview",     comboview },
+ 	{ "toggleviewex",   toggleviewex },
+-	{ "tag",            tag },
++	{ "tag",            combotag },
+ 	{ "tagall",         tagall },
+ 	{ "tagex",          tagex },
+-	{ "toggletag",      tag },
++	{ "toggletag",      combotag },
+ 	{ "toggletagex",    toggletagex },
+ 	{ "killclient",     killclient },
+ 	{ "quit",           quit },

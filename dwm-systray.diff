@@ -384,10 +384,10 @@ index 9fd0286..ed42af7 100644
 +		resizebarwin(selmon);
 +		updatesystray();
 +	}
-	if ((ev->window == root) && (ev->atom == XA_WM_NAME))
-		updatestatus();
-	else if (ev->state == PropertyDelete)
-		return; /* ignore */
+ 	if ((ev->window == root) && (ev->atom == XA_WM_NAME)) {
+ 		if (!fake_signal())
+ 			updatestatus();
+ 	}
 @@ -1490,6 +1624,19 @@ recttomon(int x, int y, int w, int h)
  	return r;
  }

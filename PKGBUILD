@@ -24,6 +24,7 @@ source=(dwm.desktop
         dwm-hide_vacant_tags.diff
         dwm-combo.diff
         dwm-cool-autostart.diff
+        dwm-dwmc.diff
         dwm-uselessgap.diff
         dwm-systray.diff
         dwm-actualfullscreen.diff
@@ -36,10 +37,11 @@ md5sums=('939f403a71b6e85261d09fc3412269ee'
          '3b0f29d3c8f2bb386c1f022ec1f061ba'
          '3b2ddca02523ce59aee19c1c34b62616'
          '3ef8266f45fb29b3d9aa4bfe919371d6'
+         '1abdccbb57eedeb681b496507fa64cbe'
          'f12792c12a853119f88aba7c500b9f5b'
-         '401555ee5f5e40293e9d50528710e93c'
+         '6c2d4986b727c7b40c12532e2ee40f0b'
          '645f339a573740ea6c5b184cfdec880b'
-         '3ce954c47eae79b6a1ff3d7107e1764c'
+         '2a026433f757625eaf9af677ab3a373b'
          'SKIP'
          'SKIP')
 
@@ -63,12 +65,12 @@ prepare() {
            dwm-hide_vacant_tags.diff
            dwm-combo.diff
            dwm-cool-autostart.diff
+           dwm-dwmc.diff
            dwm-uselessgap.diff
            dwm-systray.diff
            dwm-actualfullscreen.diff
            dwm-scratchpads.diff
-           personal_config.diff
-          )
+           personal_config.diff)
 
   for p in "${patches[@]}"; do
       _patch_it "$p"
