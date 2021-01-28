@@ -63,7 +63,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  /* tagging */
  static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
-@@ -51,26 +57,38 @@
+@@ -51,26 +57,39 @@
  	 *	WM_CLASS(STRING) = instance, class
  	 *	WM_NAME(STRING) = title
  	 */
@@ -77,6 +77,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
 -	{ NULL,		 "spcalc", NULL,		   SPTAG(2),  0,          1,          1,          -1,        -1 },
 +	/* class             instance          title           tags mask  iscenter  isfloating  isterminal   noswallow  monitor */
 +	{ "Gimp",            NULL,             NULL,           0,         0,         1,         0,           0,        -1 },
++	{ "Google-chrome", "google-chrome",    NULL,           1 << 1,    0,         0,         0,           0,        -1 },
 +	{ "Chromium",        "chromium",       NULL,           1 << 1,    0,         0,         0,           0,        -1 },
 +	{ "Brave-browser",   "brave-browser",  NULL,           1 << 1,    0,         0,         0,           0,        -1 },
 +	{ "dissenter-browser", "brave-browser", NULL,           1 << 1,    0,         0,         0,           0,        -1 },
@@ -112,7 +113,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  };
 
  /* key definitions */
-@@ -86,29 +100,30 @@
+@@ -86,29 +101,30 @@
 
  /* commands */
  static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -156,7 +157,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  	{ MODKEY,                       XK_0,      comboview,      {.ui = ~0 } },
  	{ MODKEY|ShiftMask,             XK_0,      combotag,       {.ui = ~0 } },
  	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-@@ -127,6 +143,26 @@
+@@ -127,6 +144,26 @@
  	TAGKEYS(                        XK_7,                      6)
  	TAGKEYS(                        XK_8,                      7)
  	TAGKEYS(                        XK_9,                      8)
@@ -183,7 +184,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
  };
 
-@@ -147,6 +181,18 @@
+@@ -147,6 +182,18 @@
  	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
  };
 
@@ -202,7 +203,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  void
  setlayoutex(const Arg *arg)
  {
-@@ -156,13 +202,13 @@
+@@ -156,13 +203,13 @@
  void
  viewex(const Arg *arg)
  {
@@ -218,7 +219,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  }
 
  void
-@@ -174,7 +220,7 @@
+@@ -174,7 +221,7 @@
  void
  tagex(const Arg *arg)
  {
@@ -227,7 +228,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  }
 
  void
-@@ -186,7 +232,7 @@
+@@ -186,7 +233,7 @@
  void
  tagall(const Arg *arg)
  {
@@ -236,7 +237,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  }
 
  /* signal definitions */
-@@ -202,15 +248,15 @@
+@@ -202,15 +249,15 @@
  	{ "focusmon",       focusmon },
  	{ "tagmon",         tagmon },
  	{ "zoom",           zoom },
