@@ -157,7 +157,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  	{ MODKEY,                       XK_0,      comboview,      {.ui = ~0 } },
  	{ MODKEY|ShiftMask,             XK_0,      combotag,       {.ui = ~0 } },
  	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-@@ -127,6 +144,26 @@
+@@ -127,6 +144,28 @@
  	TAGKEYS(                        XK_7,                      6)
  	TAGKEYS(                        XK_8,                      7)
  	TAGKEYS(                        XK_9,                      8)
@@ -178,6 +178,8 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
 +	{ MODKEY,                       XK_F9,     spawn,          SHCMD("$HOME/bin/screen_script.sh") },
 +	{ MODKEY,                       XK_F10,    spawn,          SHCMD("$HOME/bin/screen_script.sh -a") },
 +	{ MODKEY,                       XK_F11,    spawn,          SHCMD("$HOME/bin/screen_script.sh -m") },
++	{ MODKEY,                       XK_Home,   spawn,          SHCMD("$HOME/bin/go_home.sh") },
++	{ MODKEY,                       XK_End,    spawn,          SHCMD("$HOME/bin/go_to_work.sh") },
 +	{ MODKEY,                       XK_F12,    spawn,          SHCMD("$HOME/bin/connect_airpods.sh") },
 +	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("i3lock-fancy-rapid 5 2 -u") },
 +	{ MODKEY|ControlMask,           XK_q,      spawn,          SHCMD("$HOME/bin/logout.sh") },
