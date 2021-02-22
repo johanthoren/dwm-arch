@@ -156,8 +156,8 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
 +	{ MODKEY|ControlMask,           XK_f,      togglefloating, {0} },
  	{ MODKEY,                       XK_0,      comboview,      {.ui = ~0 } },
  	{ MODKEY|ShiftMask,             XK_0,      combotag,       {.ui = ~0 } },
- 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-@@ -127,6 +144,28 @@
+ 	{ ControlMask|Mod4Mask,         XK_Left,   shiftview,      {.i = -1 } },
+@@ -129,6 +146,28 @@
  	TAGKEYS(                        XK_7,                      6)
  	TAGKEYS(                        XK_8,                      7)
  	TAGKEYS(                        XK_9,                      8)
@@ -186,7 +186,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
  };
 
-@@ -147,6 +182,18 @@
+@@ -149,6 +184,18 @@
  	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
  };
 
@@ -205,7 +205,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  void
  setlayoutex(const Arg *arg)
  {
-@@ -156,13 +203,13 @@
+@@ -158,13 +205,13 @@
  void
  viewex(const Arg *arg)
  {
@@ -221,7 +221,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  }
 
  void
-@@ -174,7 +221,7 @@
+@@ -176,7 +223,7 @@
  void
  tagex(const Arg *arg)
  {
@@ -230,7 +230,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  }
 
  void
-@@ -186,7 +233,7 @@
+@@ -188,7 +235,7 @@
  void
  tagall(const Arg *arg)
  {
@@ -239,7 +239,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  }
 
  /* signal definitions */
-@@ -202,15 +249,15 @@
+@@ -204,15 +251,15 @@
  	{ "focusmon",       focusmon },
  	{ "tagmon",         tagmon },
  	{ "zoom",           zoom },

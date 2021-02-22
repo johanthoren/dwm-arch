@@ -29,6 +29,7 @@ source=(dwm.desktop
         dwm-systray.diff
         dwm-actualfullscreen.diff
         dwm-scratchpads.diff
+        dwm-shiftview.diff
         personal_config.diff
         "$_pkgname::git+http://git.suckless.org/dwm")
 md5sums=('939f403a71b6e85261d09fc3412269ee'
@@ -42,7 +43,8 @@ md5sums=('939f403a71b6e85261d09fc3412269ee'
          '6c2d4986b727c7b40c12532e2ee40f0b'
          '645f339a573740ea6c5b184cfdec880b'
          '2a026433f757625eaf9af677ab3a373b'
-         'SKIP'
+         '34e9a4d1b6758e9cc027cc4d4e78cae5'
+         '133b42b58e953164071f00e6ee9f7f04'
          'SKIP')
 
 pkgver(){
@@ -70,7 +72,9 @@ prepare() {
            dwm-systray.diff
            dwm-actualfullscreen.diff
            dwm-scratchpads.diff
-           personal_config.diff)
+           dwm-shiftview.diff
+           personal_config.diff
+)
 
   for p in "${patches[@]}"; do
       _patch_it "$p"
