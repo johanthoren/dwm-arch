@@ -186,12 +186,11 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
  };
 
-@@ -149,6 +184,18 @@
+@@ -149,6 +184,17 @@
  	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
  };
 
 +static const char *const autostart[] = {
-+  "sh", "-c", "$HOME/bin/connect_vpn.sh", NULL,
 +  "xss-lock", "--", "/usr/bin/i3lock-fancy-rapid", "5", "2", "-u", NULL,
 +  "dunst", NULL,
 +  "xbanish", NULL,
