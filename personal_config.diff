@@ -186,7 +186,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
  };
 
-@@ -149,6 +184,17 @@
+@@ -149,6 +184,18 @@
  	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
  };
 
@@ -198,6 +198,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
 +  "nm-applet", NULL,
 +  "picom", NULL,
 +  "dwmblocks", NULL,
++  "autokey-gtk", NULL,
 +  NULL /* terminate */
 +};
 +
