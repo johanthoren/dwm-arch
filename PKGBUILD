@@ -30,6 +30,7 @@ source=(dwm.desktop
         dwm-actualfullscreen.diff
         dwm-scratchpads.diff
         dwm-shiftview.diff
+        dwm-sticky.diff
         personal_config.diff
         "$_pkgname::git+http://git.suckless.org/dwm")
 md5sums=('939f403a71b6e85261d09fc3412269ee'
@@ -44,7 +45,8 @@ md5sums=('939f403a71b6e85261d09fc3412269ee'
          '645f339a573740ea6c5b184cfdec880b'
          '2a026433f757625eaf9af677ab3a373b'
          '34e9a4d1b6758e9cc027cc4d4e78cae5'
-         '7e0f930f2c3e97cc660a353653994711'
+         '5ab26437678e0d994b82676fe81d4a54'
+         '70c3b8fd9d338ac1fb5c9b12b8012aed'
          'SKIP')
 
 pkgver(){
@@ -73,6 +75,7 @@ prepare() {
            dwm-actualfullscreen.diff
            dwm-scratchpads.diff
            dwm-shiftview.diff
+           dwm-sticky.diff
            personal_config.diff
 )
 
