@@ -1,9 +1,9 @@
-diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
---- dwm/config.def.h	2020-07-24 13:57:31.848427949 +0200
-+++ dwm.new/config.def.h	2020-07-24 14:09:48.384410077 +0200
+diff --color -up dwm/config.def.h dwm.new/config.def.h
+--- dwm/config.def.h	2021-03-06 15:06:52.620172661 +0100
++++ dwm.new/config.def.h	2021-03-06 15:15:08.480175870 +0100
 @@ -1,27 +1,38 @@
  /* See LICENSE file for copyright and license details. */
-
+ 
 +#include <X11/XF86keysym.h>
 +
  /* appearance */
@@ -49,12 +49,12 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
 +	[SchemeNorm] = { col_cream0, col_gray1, col_gray2 },
 +	[SchemeSel]  = { col_cream1, col_cyan1, col_yellow },
  };
-
+ 
  typedef struct {
-@@ -38,11 +49,6 @@
+@@ -38,11 +49,6 @@ static Sp scratchpads[] = {
  	{"spcalc",      spcmd3},
  };
-
+ 
 -static const char *const autostart[] = {
 -	"picom", NULL,
 -	NULL /* terminate */
@@ -62,8 +62,8 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
 -
  /* tagging */
  static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-
-@@ -51,26 +57,40 @@
+ 
+@@ -51,26 +57,40 @@ static const Rule rules[] = {
  	 *	WM_CLASS(STRING) = instance, class
  	 *	WM_NAME(STRING) = title
  	 */
@@ -98,13 +98,13 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
 +	{ NULL,              "spfm",           NULL,           SPTAG(1),  0,         1,         1,          -1,        -1 },
 +	{ NULL,              "spcalc",         NULL,           SPTAG(2),  0,         1,         1,           1,        -1 },
  };
-
+ 
  /* layout(s) */
  static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
  static const int nmaster     = 1;    /* number of clients in master area */
 -static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 +static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
-
+ 
  static const Layout layouts[] = {
  	/* symbol     arrange function */
  	{ "[]=",      tile },    /* first entry is default */
@@ -112,10 +112,10 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  	{ "[M]",      monocle },
 +	{ "><>",      NULL },    /* no layout function means floating behavior */
  };
-
+ 
  /* key definitions */
-@@ -86,30 +102,31 @@
-
+@@ -86,29 +106,30 @@ static const Layout layouts[] = {
+ 
  /* commands */
  static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 -static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
@@ -123,7 +123,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  static const char *termcmd[]  = { "st", NULL };
 +static const char *clipmenucmd[]  = { "clipmenu", NULL };
 +static const char *filecmd[]  = { "st", "-e", "ranger", NULL };
-
+ 
  static Key keys[] = {
  	/* modifier                     key        function        argument */
 -	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -158,8 +158,18 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  	{ MODKEY,                       XK_s,      togglesticky,   {0} },
  	{ MODKEY,                       XK_0,      comboview,      {.ui = ~0 } },
  	{ MODKEY|ShiftMask,             XK_0,      combotag,       {.ui = ~0 } },
- 	{ ControlMask|Mod4Mask,         XK_Left,   shiftview,      {.i = -1 } },
-@@ -130,6 +148,30 @@
+@@ -118,8 +139,8 @@ static Key keys[] = {
+ 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
+ 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
+ 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+-	{ MODKEY,            			XK_y,      togglescratch,  {.ui = 0 } },
+-	{ MODKEY,            			XK_u,      togglescratch,  {.ui = 1 } },
++	{ MODKEY,                       XK_t,      togglescratch,  {.ui = 0 } },
++	{ MODKEY,                       XK_u,      togglescratch,  {.ui = 1 } },
+ 	{ 0,                            XF86XK_Calculator,         togglescratch,   {.ui = 2 } },
+ 	TAGKEYS(                        XK_1,                      0)
+ 	TAGKEYS(                        XK_2,                      1)
+@@ -130,6 +151,31 @@ static Key keys[] = {
  	TAGKEYS(                        XK_7,                      6)
  	TAGKEYS(                        XK_8,                      7)
  	TAGKEYS(                        XK_9,                      8)
@@ -168,10 +178,11 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
 +	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("$HOME/bin/dmenussh") },
 +	{ MODKEY,                       XK_c,      spawn,          {.v = clipmenucmd } },
 +	{ MODKEY|ShiftMask,             XK_v,      spawn,          SHCMD("$HOME/bin/dmenu-mullvad.sh") },
-+	{ MODKEY|ShiftMask,             XK_y,      spawn,          SHCMD("$HOME/bin/youtube-watch.sh") },
++	{ MODKEY,                       XK_y,      spawn,          SHCMD("$HOME/bin/youtube-watch.sh") },
++	{ MODKEY|ShiftMask,             XK_y,      spawn,          SHCMD("$HOME/bin/yt_clipboard.sh") },
 +	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("emacsclient -c -a 'emacs'") },
 +	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("$BROWSER") },
-+	{ 0,                 XF86XK_AudioMute,      spawn,          SHCMD("pactl -- set-sink-mute @DEFAULT_SINK@ toggle") },
++	{ 0,                 XF86XK_AudioMute,     spawn,          SHCMD("pactl -- set-sink-mute @DEFAULT_SINK@ toggle") },
 +	{ 0,          XF86XK_AudioLowerVolume,     spawn,          SHCMD("pactl -- set-sink-volume @DEFAULT_SINK@ -5%") },
 +	{ 0,          XF86XK_AudioRaiseVolume,     spawn,          SHCMD("pactl -- set-sink-volume @DEFAULT_SINK@ +5%") },
 +	{ MODKEY,            XF86XK_AudioMute,     spawn,          SHCMD("playerctl play-pause") },
@@ -189,11 +200,11 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
 +	{ MODKEY,          XF86XK_Calculator,      spawn,          SHCMD("systemctl suspend") },
  	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
  };
-
-@@ -150,6 +187,17 @@
+ 
+@@ -150,6 +196,17 @@ static Button buttons[] = {
  	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
  };
-
+ 
 +static const char *const autostart[] = {
 +  "xss-lock", "--", "/usr/bin/i3lock-fancy-rapid", "5", "2", "-u", NULL,
 +  "dunst", NULL,
@@ -208,41 +219,41 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  void
  setlayoutex(const Arg *arg)
  {
-@@ -159,13 +208,13 @@
+@@ -159,13 +216,13 @@ setlayoutex(const Arg *arg)
  void
  viewex(const Arg *arg)
  {
 -	view(&((Arg) { .ui = 1 << arg->ui }));
 +	comboview(&((Arg) { .ui = 1 << arg->ui }));
  }
-
+ 
  void
  viewall(const Arg *arg)
  {
 -	view(&((Arg){.ui = ~0}));
 +	comboview(&((Arg){.ui = ~0}));
  }
-
+ 
  void
-@@ -177,7 +226,7 @@
+@@ -177,7 +234,7 @@ toggleviewex(const Arg *arg)
  void
  tagex(const Arg *arg)
  {
 -	tag(&((Arg) { .ui = 1 << arg->ui }));
 +	combotag(&((Arg) { .ui = 1 << arg->ui }));
  }
-
+ 
  void
-@@ -189,7 +238,7 @@
+@@ -189,7 +246,7 @@ toggletagex(const Arg *arg)
  void
  tagall(const Arg *arg)
  {
 -	tag(&((Arg){.ui = ~0}));
 +	combotag(&((Arg){.ui = ~0}));
  }
-
+ 
  /* signal definitions */
-@@ -205,15 +254,15 @@
+@@ -205,15 +262,15 @@ static Signal signals[] = {
  	{ "focusmon",       focusmon },
  	{ "tagmon",         tagmon },
  	{ "zoom",           zoom },
