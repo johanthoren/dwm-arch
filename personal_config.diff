@@ -158,7 +158,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  	{ MODKEY,                       XK_0,      comboview,      {.ui = ~0 } },
  	{ MODKEY|ShiftMask,             XK_0,      combotag,       {.ui = ~0 } },
  	{ ControlMask|Mod4Mask,         XK_Left,   shiftview,      {.i = -1 } },
-@@ -130,6 +147,29 @@
+@@ -130,6 +147,30 @@
  	TAGKEYS(                        XK_7,                      6)
  	TAGKEYS(                        XK_8,                      7)
  	TAGKEYS(                        XK_9,                      8)
@@ -167,6 +167,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
 +	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("$HOME/bin/dmenussh") },
 +	{ MODKEY,                       XK_c,      spawn,          {.v = clipmenucmd } },
 +	{ MODKEY|ShiftMask,             XK_v,      spawn,          SHCMD("$HOME/bin/dmenu-mullvad.sh") },
++	{ MODKEY|ShiftMask,             XK_y,      spawn,          SHCMD("$HOME/bin/youtube-watch.sh") },
 +	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("emacsclient -c -a 'emacs'") },
 +	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("$BROWSER") },
 +	{ 0,                 XF86XK_AudioMute,      spawn,          SHCMD("pactl -- set-sink-mute @DEFAULT_SINK@ toggle") },
@@ -188,7 +189,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
  };
 
-@@ -151,6 +185,17 @@
+@@ -150,6 +186,17 @@
  	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
  };
 
@@ -206,7 +207,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  void
  setlayoutex(const Arg *arg)
  {
-@@ -160,13 +206,13 @@
+@@ -159,13 +207,13 @@
  void
  viewex(const Arg *arg)
  {
@@ -222,7 +223,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  }
 
  void
-@@ -178,7 +224,7 @@
+@@ -177,7 +225,7 @@
  void
  tagex(const Arg *arg)
  {
@@ -231,7 +232,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  }
 
  void
-@@ -190,7 +236,7 @@
+@@ -189,7 +237,7 @@
  void
  tagall(const Arg *arg)
  {
@@ -240,7 +241,7 @@ diff --color --unified --text dwm/config.def.h dwm.new/config.def.h
  }
 
  /* signal definitions */
-@@ -206,15 +252,15 @@
+@@ -205,15 +253,15 @@
  	{ "focusmon",       focusmon },
  	{ "tagmon",         tagmon },
  	{ "zoom",           zoom },
