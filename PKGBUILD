@@ -64,19 +64,20 @@ prepare() {
   cd $_pkgname
   find "${srcdir}/" -name dwmc -delete
 
-  patches=(dwm-swallow.diff
-           dwm-center.diff
-           dwm-hide_vacant_tags.diff
-           dwm-combo.diff
-           dwm-cool-autostart.diff
-           dwm-dwmc.diff
-           dwm-uselessgap.diff
-           dwm-systray.diff
-           dwm-actualfullscreen.diff
-           dwm-scratchpads.diff
-           dwm-shiftview.diff
-           dwm-sticky.diff
-           personal_config.diff
+  patches=(
+      dwm-swallow.diff
+      dwm-center.diff
+      dwm-hide_vacant_tags.diff
+      dwm-combo.diff
+      dwm-cool-autostart.diff
+      dwm-dwmc.diff
+      dwm-uselessgap.diff
+      dwm-systray.diff
+      dwm-actualfullscreen.diff
+      dwm-scratchpads.diff
+      dwm-shiftview.diff
+      dwm-sticky.diff
+      personal_config.diff
 )
 
   for p in "${patches[@]}"; do
