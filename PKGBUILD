@@ -19,34 +19,27 @@ install=dwm.install
 provides=('dwm')
 conflicts=('dwm')
 source=(dwm.desktop
-        dwm-swallow.diff
-        dwm-center.diff
-        dwm-hide_vacant_tags.diff
-        dwm-combo.diff
-        dwm-cool-autostart.diff
-        dwm-dwmc.diff
-        dwm-uselessgap.diff
-        dwm-systray.diff
-        dwm-actualfullscreen.diff
-        dwm-scratchpads.diff
-        dwm-shiftview.diff
-        dwm-sticky.diff
-        personal_config.diff
+        # jt-patches.diff is a consolidated patch containing the following
+        # patches:
+        #
+        # - actualfullscreen
+        # - center
+        # - combo
+        # - cool-autostart
+        # - dwmc
+        # - hide_vacant_tags
+        # - scratchpads
+        # - shiftview
+        # - sticky
+        # - swallow
+        # - systray
+        # - uselessgaps
+        #
+        # Some massaging has been done to make these patches play nice together.
+        jt-patches.diff
         "$_pkgname::git+http://git.suckless.org/dwm")
 md5sums=('939f403a71b6e85261d09fc3412269ee'
-         'c589a9b055c6a48133921a3d92bbcfb3'
-         'c7934768bd42be5b6ccc76581c1509ab'
-         '3b0f29d3c8f2bb386c1f022ec1f061ba'
-         '3b2ddca02523ce59aee19c1c34b62616'
-         '3ef8266f45fb29b3d9aa4bfe919371d6'
-         '1abdccbb57eedeb681b496507fa64cbe'
-         'f12792c12a853119f88aba7c500b9f5b'
-         '6c2d4986b727c7b40c12532e2ee40f0b'
-         '645f339a573740ea6c5b184cfdec880b'
-         '2a026433f757625eaf9af677ab3a373b'
-         '34e9a4d1b6758e9cc027cc4d4e78cae5'
-         '5ab26437678e0d994b82676fe81d4a54'
-         '54117c13909480c2ac3a55541a6a8e80'
+         '5bf68b26df7bbaac0ab68633537ccd8c'
          'SKIP')
 
 pkgver(){
@@ -65,19 +58,7 @@ prepare() {
   find "${srcdir}/" -name dwmc -delete
 
   patches=(
-      dwm-swallow.diff
-      dwm-center.diff
-      dwm-hide_vacant_tags.diff
-      dwm-combo.diff
-      dwm-cool-autostart.diff
-      dwm-dwmc.diff
-      dwm-uselessgap.diff
-      dwm-systray.diff
-      dwm-actualfullscreen.diff
-      dwm-scratchpads.diff
-      dwm-shiftview.diff
-      dwm-sticky.diff
-      personal_config.diff
+      jt-patches.diff
 )
 
   for p in "${patches[@]}"; do
