@@ -3,7 +3,7 @@
 pkgname=dwm-jt
 _pkgname=dwm
 builddir="$(pwd)"
-pkgver=6.2.r8.g61bb8b2
+pkgver=6.2.r9.g67d76bd
 pkgrel=1
 pkgdesc="A dynamic window manager for X - Patched by Johan Thorén"
 url="http://dwm.suckless.org"
@@ -46,7 +46,7 @@ md5sums=('939f403a71b6e85261d09fc3412269ee'
          '2a026433f757625eaf9af677ab3a373b'
          '34e9a4d1b6758e9cc027cc4d4e78cae5'
          '5ab26437678e0d994b82676fe81d4a54'
-         '983515e7c0d634d9e1f1560d4e90c011'
+         '54117c13909480c2ac3a55541a6a8e80'
          'SKIP')
 
 pkgver(){
