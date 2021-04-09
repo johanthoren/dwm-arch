@@ -123,7 +123,7 @@ index 1c0b587..d9d90e4 100644
 +	{ ControlMask,                  KEY,      comboview,      {.ui = 1 << TAG} }, \
  	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 -	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
-+	{ ControlMask|ShiftMask,        KEY,      combotag,       {.ui = 1 << TAG} }, \
++	{ MODKEY|ShiftMask,             KEY,      combotag,       {.ui = 1 << TAG} }, \
  	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
  
  /* helper for spawning shell commands in the pre dwm-5.0 fashion */
