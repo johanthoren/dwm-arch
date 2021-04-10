@@ -128,14 +128,13 @@ index 1c0b587..d9d90e4 100644
  	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
  
  /* helper for spawning shell commands in the pre dwm-5.0 fashion */
-@@ -56,34 +99,42 @@ static const Layout layouts[] = {
+@@ -56,34 +99,41 @@ static const Layout layouts[] = {
  
  /* commands */
  static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 -static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 +static const char *dmenucmd[] = { "dmenu_run_history", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_cream1, "-sb", col_cyan1, "-sf", col_cream1, topbar ? NULL : "-b", NULL };
  static const char *termcmd[]  = { "st", NULL };
-+static const char *clipmenucmd[]  = { "clipmenu", NULL };
 +static const char *filecmd[]  = { "st", "-e", "ranger", NULL };
  
  static Key keys[] = {
@@ -186,14 +185,13 @@ index 1c0b587..d9d90e4 100644
  	TAGKEYS(                        XK_1,                      0)
  	TAGKEYS(                        XK_2,                      1)
  	TAGKEYS(                        XK_3,                      2)
-@@ -93,6 +144,33 @@ static Key keys[] = {
+@@ -93,6 +144,32 @@ static Key keys[] = {
  	TAGKEYS(                        XK_7,                      6)
  	TAGKEYS(                        XK_8,                      7)
  	TAGKEYS(                        XK_9,                      8)
 +	{ MODKEY,                       XK_o,      spawn,          SHCMD("org-capture") },
 +	{ MODKEY|ShiftMask,             XK_r,      spawn,          {.v = filecmd } },
 +	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("$HOME/bin/dmenussh") },
-+	{ MODKEY,                       XK_c,      spawn,          {.v = clipmenucmd } },
 +	{ MODKEY|ShiftMask,             XK_v,      spawn,          SHCMD("$HOME/bin/dmenu-mullvad.sh") },
 +	{ MODKEY,                       XK_y,      spawn,          SHCMD("$HOME/bin/youtube-watch.sh") },
 +	{ MODKEY|ShiftMask,             XK_y,      spawn,          SHCMD("$HOME/bin/yt_clipboard.sh") },

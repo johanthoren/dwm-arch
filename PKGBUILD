@@ -11,7 +11,7 @@ arch=('i686' 'x86_64')
 license=('MIT')
 options=(zipman)
 depends=('libx11' 'libxinerama' 'libxft')
-optdepends=('clipmenu' 'dmenu' 'dunst' 'dwmblocks' 'i3lock-fancy-rapid-git'
+optdepends=('dmenu' 'dunst' 'dwmblocks' 'i3lock-fancy-rapid-git'
             'libqalculate' 'mons' 'mullvad-vpn-cli' 'nm-applet' 'numlockx'
             'picom' 'st' 'xbanish' 'xss-lock')
 makedepends=('git')
@@ -39,7 +39,7 @@ source=(dwm.desktop
         jt-patches.diff
         "$_pkgname::git+http://git.suckless.org/dwm")
 md5sums=('939f403a71b6e85261d09fc3412269ee'
-         'a181308869a8a09fb65cd9f0f2ea9b26'
+         'b8ccfb249620ad956955188d83408256'
          'SKIP')
 
 pkgver(){
