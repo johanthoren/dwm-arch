@@ -117,10 +117,11 @@ index 1c0b587..d9d90e4 100644
  };
  
  /* key definitions */
- #define MODKEY Mod1Mask
+-#define MODKEY Mod1Mask
++#define MODKEY Mod4Mask
  #define TAGKEYS(KEY,TAG) \
 -	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
-+	{ ControlMask,                  KEY,      comboview,      {.ui = 1 << TAG} }, \
++	{ MODKEY,                       KEY,      comboview,      {.ui = 1 << TAG} }, \
  	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 -	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 +	{ MODKEY|ShiftMask,             KEY,      combotag,       {.ui = 1 << TAG} }, \
