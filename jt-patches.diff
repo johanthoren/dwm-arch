@@ -78,7 +78,7 @@ index 1c0b587..d9d90e4 100644
  };
  
  /* tagging */
-@@ -26,29 +57,41 @@ static const Rule rules[] = {
+@@ -26,29 +57,40 @@ static const Rule rules[] = {
  	 *	WM_CLASS(STRING) = instance, class
  	 *	WM_NAME(STRING) = title
  	 */
@@ -86,7 +86,6 @@ index 1c0b587..d9d90e4 100644
 -	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 -	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 +	/* class             instance          title           tags mask  iscenter  isfloating  isterminal   noswallow  monitor */
-+	{ "Gimp",            NULL,             NULL,           0,         0,         1,         0,           0,        -1 },
 +	{ "Google-chrome", "google-chrome",    NULL,           1 << 1,    0,         0,         0,           0,        -1 },
 +	{ "firefox",         "Navigator",      NULL,           1 << 1,    0,         0,         0,           0,        -1 },
 +	{ "Emacs",           NULL,             NULL,           1 << 2,    0,         0,         0,           0,        -1 },
