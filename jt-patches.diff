@@ -78,7 +78,7 @@ index 1c0b587..d9d90e4 100644
  };
  
  /* tagging */
-@@ -26,29 +57,40 @@ static const Rule rules[] = {
+@@ -26,29 +57,41 @@ static const Rule rules[] = {
  	 *	WM_CLASS(STRING) = instance, class
  	 *	WM_NAME(STRING) = title
  	 */
@@ -90,6 +90,7 @@ index 1c0b587..d9d90e4 100644
 +	{ "firefox",         "Navigator",      NULL,           1 << 1,    0,         0,         0,           0,        -1 },
 +	{ "Emacs",           NULL,             NULL,           1 << 2,    0,         0,         0,           0,        -1 },
 +	{ "Signal",          "signal",         NULL,           1 << 3,    0,         0,         0,           0,        -1 },
++	{ "TelegramDesktop", "telegram-desktop",NULL,          1 << 3,    0,         0,         0,           0,        -1 },
 +	{ "Microsoft Teams - Preview", NULL,   NULL,           1 << 4,    0,         0,         0,           0,        -1 },
 +	{ "Vmware",          "vmware",         NULL,           1 << 5,    0,         0,         0,           0,        -1 },
 +	{ NULL,              "youtube-mpv",    NULL,           0,         0,         1,         0,           0,        -1 },
@@ -217,7 +218,7 @@ index 1c0b587..d9d90e4 100644
  	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
  };
  
-@@ -107,9 +185,90 @@ static Button buttons[] = {
+@@ -107,9 +185,91 @@ static Button buttons[] = {
  	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
  	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
  	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
@@ -237,6 +238,7 @@ index 1c0b587..d9d90e4 100644
 +  "nm-applet", NULL,
 +  "picom", NULL,
 +  "dwmblocks", NULL,
++  "startup.sh", NULL,
 +  NULL /* terminate */
 +};
 +
