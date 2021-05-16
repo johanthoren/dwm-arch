@@ -78,7 +78,7 @@ index 1c0b587..d9d90e4 100644
  };
  
  /* tagging */
-@@ -26,29 +57,41 @@ static const Rule rules[] = {
+@@ -26,29 +57,42 @@ static const Rule rules[] = {
  	 *	WM_CLASS(STRING) = instance, class
  	 *	WM_NAME(STRING) = title
  	 */
@@ -86,13 +86,14 @@ index 1c0b587..d9d90e4 100644
 -	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 -	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 +	/* class             instance          title           tags mask  iscenter  isfloating  isterminal   noswallow  monitor */
-+	{ "Google-chrome", "google-chrome",    NULL,           1 << 1,    0,         0,         0,           0,        -1 },
 +	{ "firefox",         "Navigator",      NULL,           1 << 1,    0,         0,         0,           0,        -1 },
++	{ "Brave-browser",   "brave-browser",  NULL,           1 << 1,    0,         0,         0,           0,        -1 },
 +	{ "Emacs",           NULL,             NULL,           1 << 2,    0,         0,         0,           0,        -1 },
 +	{ "Signal",          "signal",         NULL,           1 << 3,    0,         0,         0,           0,        -1 },
 +	{ "TelegramDesktop", "telegram-desktop",NULL,          1 << 3,    0,         0,         0,           0,        -1 },
 +	{ "Microsoft Teams - Preview", NULL,   NULL,           1 << 4,    0,         0,         0,           0,        -1 },
 +	{ "Vmware",          "vmware",         NULL,           1 << 5,    0,         0,         0,           0,        -1 },
++	{ "Google-chrome", "google-chrome",    NULL,           1 << 8,    0,         0,         0,           0,        -1 },
 +	{ NULL,              "youtube-mpv",    NULL,           0,         0,         1,         0,           0,        -1 },
 +	{ "St",              NULL,             NULL,           0,         0,         0,         1,           1,        -1 },
 +	{ "st-256color",     NULL,             NULL,           0,         0,         0,         1,           1,        -1 },
