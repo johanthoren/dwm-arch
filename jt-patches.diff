@@ -78,7 +78,7 @@ index 1c0b587..d9d90e4 100644
  };
  
  /* tagging */
-@@ -26,29 +57,43 @@ static const Rule rules[] = {
+@@ -26,30 +57,44 @@ static const Rule rules[] = {
  	 *	WM_CLASS(STRING) = instance, class
  	 *	WM_NAME(STRING) = title
  	 */
@@ -109,6 +109,7 @@ index 1c0b587..d9d90e4 100644
  static const int nmaster     = 1;    /* number of clients in master area */
 -static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 +static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
+ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
  
  static const Layout layouts[] = {
  	/* symbol     arrange function */
@@ -130,7 +131,7 @@ index 1c0b587..d9d90e4 100644
  	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
  
  /* helper for spawning shell commands in the pre dwm-5.0 fashion */
-@@ -56,34 +99,41 @@ static const Layout layouts[] = {
+@@ -57,34 +101,41 @@ static const Layout layouts[] = {
  
  /* commands */
  static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -187,7 +188,7 @@ index 1c0b587..d9d90e4 100644
  	TAGKEYS(                        XK_1,                      0)
  	TAGKEYS(                        XK_2,                      1)
  	TAGKEYS(                        XK_3,                      2)
-@@ -93,6 +144,32 @@ static Key keys[] = {
+@@ -94,6 +145,32 @@ static Key keys[] = {
  	TAGKEYS(                        XK_7,                      6)
  	TAGKEYS(                        XK_8,                      7)
  	TAGKEYS(                        XK_9,                      8)
@@ -220,7 +221,7 @@ index 1c0b587..d9d90e4 100644
  	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
  };
  
-@@ -107,9 +185,91 @@ static Button buttons[] = {
+@@ -108,9 +185,91 @@ static Button buttons[] = {
  	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
  	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
  	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
