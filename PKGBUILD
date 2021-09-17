@@ -39,7 +39,7 @@ source=(dwm.desktop
         jt-patches.diff
         "$_pkgname::git+http://git.suckless.org/dwm")
 md5sums=('939f403a71b6e85261d09fc3412269ee'
-         '5c8b0f6f5cc10240db448263488252d6'
+         'fb5c94d0e12be2f1aab46410ec4d7a65'
          'SKIP')
 
 pkgver(){
