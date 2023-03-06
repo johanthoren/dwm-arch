@@ -37,7 +37,8 @@ source=(dwm.desktop
         #
         # Some massaging has been done to make these patches play nice together.
         jt-patches.diff
-        "$_pkgname::git+http://git.suckless.org/dwm")
+        "$_pkgname::git+http://git.suckless.org/dwm#commit=a786211d6cb794fba0ea406d86002c7618998afc")
+
 md5sums=('939f403a71b6e85261d09fc3412269ee'
          '028c1ae695f1bad231c511591e4d2796'
          'SKIP')
